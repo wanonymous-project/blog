@@ -9,7 +9,7 @@ description: "ESP32とKP-IR612で、データ取得"
 (*1)https://prod.kyohritsu.com/KP-IR612.html
 
 
-##接続
+## 接続
 
 こういう感じ
 
