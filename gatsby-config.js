@@ -6,7 +6,7 @@ module.exports = {
       summary: `who lives and works in San Francisco building useful things.`,
     },
     description: `わのにますのブログです。`,
-    siteUrl: ``,
+    siteUrl: `https://empty.com`,
     social: {
       twitter: ``,
     },
