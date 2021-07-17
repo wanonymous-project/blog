@@ -6,7 +6,7 @@ module.exports = {
       summary: `who lives and works in San Francisco building useful things.`,
     },
     description: `わのにますのブログです。`,
-    siteUrl: `https://empty.com`,
+    siteUrl: `https://reverent-meitner-f637c1.netlify.app/`,
     social: {
       twitter: ``,
     },
