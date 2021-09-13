@@ -1,7 +1,7 @@
 ---
-title: 人感センサを使ってみる
+title: 人感センサを使ってみる（Raspi）
 date: "2021-09-13"
-description: "Rasberry PIと人感センサを使ってみる"
+description: "Rasberry PIで人感センサを使ってみる"
 ---
 
 ## 目次
@@ -17,9 +17,9 @@ description: "Rasberry PIと人感センサを使ってみる"
 
 - Rasberry Pi zero WH
 - 人感センサ
-    焦電型赤外線センサーモジュール SB612A（秋月電子）
+  焦電型赤外線センサーモジュール SB612A（秋月電子）
 - 導線
-    メス－メス　３本
+  メス－メス　３本
 
 ## 人感センサの接続
 

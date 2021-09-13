@@ -1,7 +1,7 @@
 ---
-title: 人感センサを使ってみる
+title: 人感センサを使ってみる（ESP32）
 date: "2021-09-13"
-description: "ESP32と人感センサを使ってみる"
+description: "ESP32で人感センサを使ってみる"
 ---
 
 ## 目次
