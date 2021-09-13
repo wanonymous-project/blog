@@ -35,6 +35,11 @@ SimpleWiFiServerスケッチに、SSIDとPWを書き込む
 
 https://miraluna.hatenablog.com/entry/esp32_wifi_setuzoku
 
+## 接続エラーより、断念
+
+残念、無念、また来年。
+https://discord.com/channels/849944957446783027/886047311963254835/886879218561073174
+
 ## モジュールの接続方法
 https://qiita.com/Tsukkey/items/55d4ec1365a980565454
 
