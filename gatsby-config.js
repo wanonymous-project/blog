@@ -34,7 +34,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-table-of-contents`,
             options: {
-              exclude: "Table of Contents",
+              exclude: "目次",
               tight: false,
               ordered: false,
               fromHeading: 1,

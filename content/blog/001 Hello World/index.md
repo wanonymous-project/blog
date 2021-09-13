@@ -4,8 +4,9 @@ date: "2000-01-01"
 description: "最初のブログです。"
 ---
 
+## 目次
 ```toc
-# This code block gets replaced with the TOC
+# 目次はここに追加されます。
 ```
 
 本ブログは、Gatsby.jsで作成しています。
