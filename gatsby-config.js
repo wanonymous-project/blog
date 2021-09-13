@@ -42,8 +42,7 @@ module.exports = {
               className: "table-of-contents"
             },
           },
-          `gatsby-remark-autolink-headers`
-          ,
+          `gatsby-remark-autolink-headers`,
           {
             resolve: `gatsby-remark-images`,
             options: {
