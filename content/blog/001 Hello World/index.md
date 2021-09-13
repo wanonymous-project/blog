@@ -4,6 +4,10 @@ date: "2000-01-01"
 description: "最初のブログです。"
 ---
 
+```toc
+# This code block gets replaced with the TOC
+```
+
 本ブログは、Gatsby.jsで作成しています。
 マークダウンで記載可能です。
 以下、サンプルとなります。
