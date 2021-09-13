@@ -4,6 +4,13 @@ date: "2021-07-01"
 description: "ESP32とKP-IR612で、データ取得"
 ---
 
+## 目次
+```toc
+# 目次はここに追加されます。
+```
+***
+<br>
+
 人感センサー"KP-IR612"(*1)とESP32で、人感データを取得してみる。
 
 (*1)https://prod.kyohritsu.com/KP-IR612.html
