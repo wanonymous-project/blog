@@ -60,7 +60,7 @@ function doGet(e) {
   var sheet = SpreadsheetApp.getActiveSheet();
  
   //現在日時をspreadsheetへ書き込み
-  sheet.appendRow([new Date());
+  sheet.appendRow([new Date()]);
 }
 
 ```
