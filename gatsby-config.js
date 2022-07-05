@@ -32,6 +32,18 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: `gatsby-remark-table-of-contents`,
+            options: {
+              exclude: "目次",
+              tight: true,
+              ordered: false,
+              fromHeading: 1,
+              toHeading: 6,
+              className: "table-of-contents"
+            },
+          },
+          `gatsby-remark-autolink-headers`,
+          {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 630,
@@ -51,12 +63,12 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-     {
-       resolve: `gatsby-plugin-google-analytics`,
-       options: {
-         trackingId: `G-TNFT3NHFN1`,
-       },
-     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `G-TNFT3NHFN1`,
+      },
+    },
     {
       resolve: `gatsby-plugin-feed`,
       options: {
