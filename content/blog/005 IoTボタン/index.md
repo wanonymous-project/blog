@@ -223,4 +223,6 @@ https://rooter.jp/alexa/how-to-setup-google-home-notifier/
 
 
 # 総括
+
 簡単なようで、つまづきまくったので、初心者には厳しいと思われ。
+
