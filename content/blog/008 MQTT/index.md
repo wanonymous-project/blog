@@ -67,7 +67,7 @@ mosquitto_pub -h localhost -t test/topic -m "Hello"
 
 # mosquitto 外部からの接続
 mosquitto は初期設定では外部からの接続が出来ない（許可されているのはlocalhostのみ）<br>
-他PCなどから接続する際には設定ファイルの変更が必要。
+他PCなどから接続する際には設定ファイルの変更が必要。<br>
 
 [etc/mosquitto/mosquitto.conf]
 ```
@@ -83,7 +83,7 @@ allow_anonymous true 		# パスワード認証しない場合はこれが必要
 
 # MQTT.js チュートリアル
 
-ポイントは
+ポイントは<br>
 ・ブローカーでソケット通信のポートを開く事。（今回の場合9001番）<br>
 ・Webブラウザでは直接MQTTプロトコルを扱えない為、プロトコルをws:（ウェブソケット）にする事。<br>
 
