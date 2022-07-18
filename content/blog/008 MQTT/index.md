@@ -67,9 +67,9 @@ mosquitto は初期設定では外部からの接続が出来ない（許可さ�
 
 [etc/mosquitto/mosquitto.conf]
 ```
-listener 1883           # MQTTのポート（外部からの接続の際、必須）
-listener 9001           # WebSocket用（任意）
-listener 8883           # TLS接続用（任意）
+listener 1883               # MQTTのポート（外部からの接続の際、必須）
+listener 9001               # WebSocket用（任意）
+listener 8883               # TLS接続用（任意）
 protocol websockets
 
 allow_anonymous true 		# パスワード認証しない場合はこれが必要
