@@ -38,8 +38,11 @@ Publisherが通信ができなくなった時に指定メッセージを送信�
 <br>
 <br>
 # パッケージ
-mosquito    最も有名なMQTTブローカー<br>
-MQTT.js     MQTTをWeb(JavaScript)で使う際のライブラリ<br>
+
+|  パッケージ名  |  概要  |
+| ---- | ---- |
+|  mosquitto  |  最も有名なMQTTブローカー  |
+|  MQTT.js  |  MQTTをhtml(JavaScript)で使う際のライブラリ  |
 
 
 
