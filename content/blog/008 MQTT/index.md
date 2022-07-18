@@ -98,19 +98,22 @@ allow_anonymous true 		# パスワード認証しない場合はこれが必要
     </head>
     <body>
         <script>
-            var client = mqtt.connect('ws://192.168.1.1:9001');	<!-- ソケット通信用のポートを選択する -- >
+            var client = mqtt.connect('ws://192.168.1.1:9001');     // ソケット通信用のポートを選択する
             client.subscribe("test/topic");
 
-            client.on('message', function (topic, message) { // message is Buffer
+            client.on('message', function (topic, message) {        // メッセージ受信イベント
                 console.log(message.toString());
             });
 
             function OnButtonClick() {
                 console.log('onClick');
-                client.publish('test/topic', 'message from html!');
+                client.publish('test/topic', 'message from html!'); // 送信（Publish）
             }
         </script>
-        <input type="button" value="Publish" onclick="OnButtonClick()"/>
+        <input type="button" value="Publish" onclick="OnButtonClick()"/><!--このボタンを押すとPublishする-->
     </body>
 </html>
 ```
+
+# ESP32での利用
+（編集中）
