@@ -58,7 +58,7 @@ mosquitto_sub -h localhost -t test/topic
 
 パブリッシュ
 ```bash
-mosquitto_pub -t test/topic -m "Hello"
+mosquitto_pub -h localhost -t test/topic -m "Hello"
 ```
 
 
@@ -74,4 +74,37 @@ listener 8883               # TLS接続用（任意）
 protocol websockets
 
 allow_anonymous true 		# パスワード認証しない場合はこれが必要
+```
+
+
+
+# MQTT.js チュートリアル
+
+
+[ index.html @htmlサーバー]
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>MQTT.js Test</title>
+        <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>      
+    </head>
+    <body>
+        <script>
+            var client = mqtt.connect('ws://192.168.1.1:9001');	<!-- ソケット通信用のポートを選択する -- >
+            client.subscribe("test/topic");
+
+            client.on('message', function (topic, message) { // message is Buffer
+                console.log(message.toString());
+            });
+
+            function OnButtonClick() {
+                console.log('onClick');
+                client.publish('test/topic', 'message from html!');
+            }
+        </script>
+        <input type="button" value="Publish" onclick="OnButtonClick()"/>
+    </body>
+</html>
 ```
