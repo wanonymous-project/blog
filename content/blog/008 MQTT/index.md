@@ -15,8 +15,6 @@ description: "MQTTの概要と具体的な利用方法"
 
 
 # 用語
-## 
-
 ## Topic
 メッセージ種別の識別子。「/」で区切られた階層構造。（例）sensor/temp
 Subscriberは受信したいトピックを指定することで、欲しいメッセージだけを手に入れることができる。
@@ -44,6 +42,7 @@ mosquito    最も有名なMQTTブローカー
 MQTT.js     MQTTをWeb(JavaScript)で使う際のライブラリ
 
 
+
 # mosquitto チュートリアル
 インストール
 ```bash
@@ -54,10 +53,24 @@ sudo apt install mosquitto-clients    # mosquitto_sub、mosquitto_pubなど
 
 サブスクライブ
 ```bash
-mosquitto_sub -h localhost -t sub
+mosquitto_sub -h localhost -t test/topic
 ```
 
 パブリッシュ
 ```bash
-mosquitto_pub -t test -m "Hello"
+mosquitto_pub -t test/topic -m "Hello"
+```
+
+
+# mosquitto 外部からの接続
+mosquitto は初期設定では外部からの接続が出来ない（許可されているのはlocalhostのみ）
+
+[etc/mosquitto/mosquitto.conf]
+```
+listener 1883           # MQTTのポート（外部からの接続の際、必須）
+listener 9001           # WebSocket用（任意）
+listener 8883           # TLS接続用（任意）
+protocol websockets
+
+allow_anonymous true 		# パスワード認証しない場合はこれが必要
 ```
