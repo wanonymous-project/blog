@@ -21,7 +21,7 @@ Subscriberは受信したいトピックを指定することで、欲しいメ�
 （例）sensor/ を指定するとsensor/temp, sensor/humid などを受信できるが camera/detectなどは受信しない。<br>
 
 ## Retain
-メッセージをMQTTサーバーが保持しておく機能。<br>
+メッセージをBroker が保持しておく機能。<br>
 例えば10分毎にPublishされる情報をSubscriberがいつでも取りに来られるようにする為の機能。<br>
 （比較）QoS<br>
 
