@@ -124,7 +124,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `よしぶろぐ`,
+        name: `わのにますぶろぐ`,
         short_name: `Wanonymous Blog`,
         start_url: `/`,
         background_color: `#ffffff`,
