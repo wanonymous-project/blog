@@ -29,6 +29,20 @@ https://www.switch-science.com/catalog/5699/
 
 （参考）https://qiita.com/takjg/items/e6b8af53421be54b62c9
 
+## ラズパイ - ソフトウェア
+
+irrp.pyをダウンロード
+```bash
+curl http://abyz.me.uk/rpi/pigpio/code/irrp_py.zip | zcat > irrp.py
+```
+このスクリプトのシェバンが　#!/usr/bin/env python　になっているのは問題では？2022-07-24
+
+実行
+```bash
+python3 irrp.py -r –g 27 -f codes my_light:on  --post 130	# 正規品のリモコン信号を学習	--post は省略可能
+python3 irrp.py -p –g 17 -f codes my_light:on		        # 実行
+```
+
 ## 資料
 
 （補足）ラズパイ用の「HAT」も存在するようだが値段が１万円くらいする。
