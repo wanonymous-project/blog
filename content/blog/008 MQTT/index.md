@@ -43,6 +43,7 @@ Publisherが通信ができなくなった時に指定メッセージを送信�
 | ---- | ---- |
 |  mosquitto  |  最も有名なMQTTブローカー  |
 |  MQTT.js  |  MQTTをhtml(JavaScript)で使う際のライブラリ  |
+|  paho-mqtt  |  pythonでMQTTを使う際のライブラリ  |
 
 
 
@@ -115,5 +116,67 @@ allow_anonymous true 		# パスワード認証しない場合はこれが必要
 </html>
 ```
 
+# paho-mqtt チュートリアル
+インストール
+```bash
+python3 -m pip install paho-mqtt
+```
+<br/>
+サンプルソース
+```python
+import paho.mqtt.client as mqtt
+
+def on_connect(client, userdata, flags, rc):
+    print("Connected with result code "+str(rc))
+
+    client.subscribe('test/topic')          # Subscribe開始
+
+def on_message(client, userdata, msg):
+    print(msg.topic+" "+str(msg.payload))   # 受信メッセージのTopic と内容の表示
+
+client = mqtt.Client()
+client.on_connect = on_connect              # イベントの設定：接続時
+client.on_message = on_message              # イベントの設定：メッセージ受信(Subscribe)
+client.connect(host='localhost', port=1883, keepalive=60)
+client.loop_forever()                       # 無限ループでメッセージを待機
+```
+
 # ESP32での利用
-（編集中）
+以下のURLから最新(latest) のPubSubClient をダウンロード
+https://www.arduino.cc/reference/en/libraries/pubsubclient/
+<br/>
+ArduinoStudioを起動<br/>
+メニュー：スケッチ→ライブラリをインクルード→.zip形式のライブラリをインストール<br/>
+で先程のダウンロードした.zipファイルを選択
+<br/>
+Arduino Studioサンプルソース
+```cpp
+#include <MQTTClient.h>
+#include "EspMQTTClient.h"
+
+EspMQTTClient mqttClient(
+  "YOUR_SSID",
+  "PASSWORD",
+  "192.168.1.1"  // MQTT Broker server ip
+);
+
+void setup() {
+  Serial.begin(115200);
+  delay(50);  // Serial Init Wait
+}
+
+void onConnectionEstablished() {
+  Serial.println("onConnectionEstablished.");
+  
+  mqttClient.subscribe("test/topic", [] (const String &payload)  {
+    Serial.println(payload);
+  });
+
+  mqttClient.publish("test", "This is a message");
+}
+
+void loop() {
+  mqttClient.loop();
+}
+```
+補足：ファイル → スケッチ例 → カスタムライブラリのスケッチ例 → PubSubClient にもいくつか例がある。
