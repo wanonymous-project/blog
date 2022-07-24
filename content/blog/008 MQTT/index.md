@@ -82,6 +82,33 @@ allow_anonymous true 		# パスワード認証しない場合はこれが必要
 
 
 
+# paho-mqtt チュートリアル
+インストール
+```bash
+python3 -m pip install paho-mqtt
+```
+
+[ mqtt_test.py（サンプル）]
+
+```python
+import paho.mqtt.client as mqtt
+
+def on_connect(client, userdata, flags, rc):
+    print("Connected with result code "+str(rc))
+
+    client.subscribe('test/topic')          # Subscribe開始
+
+def on_message(client, userdata, msg):
+    print(msg.topic+" "+str(msg.payload))   # 受信メッセージのTopic と内容の表示
+
+client = mqtt.Client()
+client.on_connect = on_connect              # イベントの設定：接続時
+client.on_message = on_message              # イベントの設定：メッセージ受信(Subscribe)
+client.connect(host='localhost', port=1883, keepalive=60)
+client.loop_forever()                       # 無限ループでメッセージを待機
+```
+
+
 # MQTT.js チュートリアル
 
 ポイントは<br>
@@ -116,43 +143,16 @@ allow_anonymous true 		# パスワード認証しない場合はこれが必要
 </html>
 ```
 
-# paho-mqtt チュートリアル
-インストール
-```bash
-python3 -m pip install paho-mqtt
-```
-<br/>
-サンプルソース
-
-```python
-import paho.mqtt.client as mqtt
-
-def on_connect(client, userdata, flags, rc):
-    print("Connected with result code "+str(rc))
-
-    client.subscribe('test/topic')          # Subscribe開始
-
-def on_message(client, userdata, msg):
-    print(msg.topic+" "+str(msg.payload))   # 受信メッセージのTopic と内容の表示
-
-client = mqtt.Client()
-client.on_connect = on_connect              # イベントの設定：接続時
-client.on_message = on_message              # イベントの設定：メッセージ受信(Subscribe)
-client.connect(host='localhost', port=1883, keepalive=60)
-client.loop_forever()                       # 無限ループでメッセージを待機
-```
 
 # ESP32での利用
 以下のURLから最新(latest) のPubSubClient をダウンロード
 https://www.arduino.cc/reference/en/libraries/pubsubclient/
 
-<br/>
-
 ArduinoStudioを起動<br/>
-メニュー：スケッチ→ライブラリをインクルード→.zip形式のライブラリをインストール<br/>
-で先程のダウンロードした.zipファイルを選択
+メニュー：スケッチ→ライブラリをインクルード→.zip形式のライブラリをインストール で先程のダウンロードした.zipファイルを選択
 <br/>
-Arduino Studioサンプルソース
+<br/>
+[ Arduino Studioサンプルソース ]
 
 ```cpp
 #include <MQTTClient.h>
@@ -161,22 +161,22 @@ Arduino Studioサンプルソース
 EspMQTTClient mqttClient(
   "YOUR_SSID",
   "PASSWORD",
-  "192.168.1.1"  // MQTT Broker server ip
+  "192.168.1.1"           // Broker のIPアドレス
 );
 
 void setup() {
   Serial.begin(115200);
-  delay(50);  // Serial Init Wait
+  delay(50);              // シリアルコンソールの起動を待機する(50mSec)
 }
 
 void onConnectionEstablished() {
-  Serial.println("onConnectionEstablished.");
+  Serial.println("Connection Established.");
   
   mqttClient.subscribe("test/topic", [] (const String &payload)  {
     Serial.println(payload);
   });
 
-  mqttClient.publish("test", "This is a message");
+  mqttClient.publish("test/topic", "message from ESP32!");
 }
 
 void loop() {
