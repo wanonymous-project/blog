@@ -42,8 +42,8 @@ Publisherが通信ができなくなった時に指定メッセージを送信�
 |  パッケージ名  |  概要  |
 | ---- | ---- |
 |  mosquitto  |  最も有名なMQTTブローカー  |
-|  MQTT.js  |  MQTTをhtml(JavaScript)で使う際のライブラリ  |
 |  paho-mqtt  |  pythonでMQTTを使う際のライブラリ  |
+|  MQTT.js  |  MQTTをhtml(JavaScript)で使う際のライブラリ  |
 
 
 
@@ -80,12 +80,16 @@ protocol websockets
 allow_anonymous true 		# パスワード認証しない場合はこれが必要
 ```
 
+mosquittoデーモンの再起動
+```bash
+sudo apt restart mosquitto.service
+```
 
 
 # paho-mqtt チュートリアル
 インストール
 ```bash
-python3 -m pip install paho-mqtt
+pip3 install paho-mqtt
 ```
 
 [ mqtt_test.py（サンプル）]
