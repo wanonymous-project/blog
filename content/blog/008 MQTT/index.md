@@ -67,10 +67,10 @@ mosquitto_pub -h localhost -t test/topic -m "Hello"
 
 
 # mosquitto 外部からの接続
-mosquitto は初期設定では外部からの接続が出来ない（許可されているのはlocalhostのみ）<br>
+mosquitto は初期設定では外部からの接続が出来ない（許可されているのはlocalhostのみ）
 他PCなどから接続する際には設定ファイルの変更が必要。<br>
 
-[etc/mosquitto/mosquitto.conf]
+[ etc/mosquitto/mosquitto.conf ]
 ```
 listener 1883               # MQTTのポート（外部からの接続の際、必須）
 listener 9001               # WebSocket用（任意）
