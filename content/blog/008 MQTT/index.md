@@ -82,7 +82,7 @@ allow_anonymous true 		# パスワード認証しない場合はこれが必要
 
 mosquittoデーモンの再起動
 ```bash
-sudo apt restart mosquitto.service
+sudo systemctl restart mosquitto
 ```
 
 
