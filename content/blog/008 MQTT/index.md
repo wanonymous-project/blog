@@ -123,6 +123,7 @@ python3 -m pip install paho-mqtt
 ```
 <br/>
 サンプルソース
+
 ```python
 import paho.mqtt.client as mqtt
 
@@ -144,12 +145,15 @@ client.loop_forever()                       # 無限ループでメッセージ�
 # ESP32での利用
 以下のURLから最新(latest) のPubSubClient をダウンロード
 https://www.arduino.cc/reference/en/libraries/pubsubclient/
+
 <br/>
+
 ArduinoStudioを起動<br/>
 メニュー：スケッチ→ライブラリをインクルード→.zip形式のライブラリをインストール<br/>
 で先程のダウンロードした.zipファイルを選択
 <br/>
 Arduino Studioサンプルソース
+
 ```cpp
 #include <MQTTClient.h>
 #include "EspMQTTClient.h"
@@ -179,4 +183,5 @@ void loop() {
   mqttClient.loop();
 }
 ```
+
 補足：ファイル → スケッチ例 → カスタムライブラリのスケッチ例 → PubSubClient にもいくつか例がある。
