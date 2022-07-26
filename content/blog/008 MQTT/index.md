@@ -18,7 +18,7 @@ description: "MQTTの概要と具体的な利用方法"
 ## Topic
 メッセージ種別の識別子。「/」で区切られた階層構造。（例）sensor/temp<br>
 Subscriberは受信したいトピックを指定することで、欲しいメッセージだけを手に入れることができる。<br>
-例　sensor/# を指定するとsensor/temp, sensor/humid などを受信できるが camera/detectなどは受信しない。<br>
+> 例　sensor/# を指定するとsensor/temp, sensor/humid などを受信できるが camera/detectなどは受信しない。<br>
 補足：「+」「#」はワイルドカードで、「+」が一階層のみ、「#」が複数階層。
 
 ## Retain

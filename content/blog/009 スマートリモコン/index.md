@@ -33,7 +33,7 @@ https://www.arduino.cc/reference/en/libraries/irremoteesp8266/
 ArduinoStudioを起動<br/>
 メニュー：スケッチ→ライブラリをインクルード→.zip形式のライブラリをインストール で先程のダウンロードした.zipファイルを選択
 
-補足：ファイル → スケッチ例 → カスタムライブラリのスケッチ例 → IRremoteESP8266 にもいくつか例がある。
+> 補足：ファイル → スケッチ例 → カスタムライブラリのスケッチ例 → IRremoteESP8266 にもいくつか例がある。
 
 <br/>
 
