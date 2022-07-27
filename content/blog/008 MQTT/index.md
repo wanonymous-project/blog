@@ -34,7 +34,7 @@ Subscriberは受信したいトピックを指定することで、欲しいメ�
 | QoS1 | 受信の保証付きで送信。重複受信の可能性あり。 |
 | QoS2 | M受信の保証付きで送信。重複受信の可能性なし。 |
 
-(QoS0しか実装されていないBrokerも多いらしいので注意)<br>
+> QoS0しか実装されていないBrokerも多いらしいので注意
 （比較）Retain<br>
 <br>
 ## Will
@@ -120,8 +120,8 @@ client.loop_forever()                       # 無限ループでメッセージ�
 # MQTT.js チュートリアル
 
 ポイントは<br>
-・Broker でソケット通信のポートを開く事。（今回の場合9001番）<br>
-・Webブラウザでは直接MQTTプロトコルを扱えない為、プロトコルをws:（ウェブソケット）にする事。<br>
+・Broker で WebSocket用の通信ポートを開く事。（今回の場合9001番）<br>
+・プロトコルをws:（WebSocket）にする事。（Webブラウザでは直接MQTTプロトコルを扱えない）<br>
 
 [ index.html @htmlサーバー]
 ```html
@@ -130,20 +130,20 @@ client.loop_forever()                       # 無限ループでメッセージ�
     <head>
         <meta charset="UTF-8">
         <title>MQTT.js Test</title>
-        <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>      
+        <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>     <!-- ライブラリの読み込み --> 
     </head>
     <body>
         <script>
-            var client = mqtt.connect('ws://192.168.1.1:9001');     // ソケット通信用のポートを選択する
+            var client = mqtt.connect('ws://192.168.1.1:9001');             // ソケット通信用のポートを選択する
             client.subscribe("test/topic");
 
-            client.on('message', function (topic, message) {        // メッセージ受信イベント
+            client.on('message', function (topic, message) {                // メッセージ受信イベント
                 console.log(message.toString());
             });
 
             function OnButtonClick() {
                 console.log('onClick');
-                client.publish('test/topic', 'message from html!'); // 送信（Publish）
+                client.publish('test/topic', 'message from html!');         // 送信（Publish）
             }
         </script>
         <input type="button" value="Publish" onclick="OnButtonClick()"/><!--このボタンを押すとPublishする-->
@@ -153,7 +153,7 @@ client.loop_forever()                       # 無限ループでメッセージ�
 
 
 # ESP32での利用
-以下のURLから最新(latest) のPubSubClient をダウンロード
+以下のURLから最新(latest) のPubSubClient をダウンロード<br/>
 https://www.arduino.cc/reference/en/libraries/pubsubclient/
 
 ArduinoStudioを起動<br/>
@@ -192,4 +192,4 @@ void loop() {
 }
 ```
 
-補足：ファイル → スケッチ例 → カスタムライブラリのスケッチ例 → PubSubClient にもいくつか例がある。
+> 補足：ファイル → スケッチ例 → カスタムライブラリのスケッチ例 → PubSubClient にもいくつか例がある。

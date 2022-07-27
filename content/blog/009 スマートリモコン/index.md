@@ -17,7 +17,7 @@ description: "スマートリモコンを実現する方法をいくつかまと
 # M5 Stack
 ## M5 Stack - ハードウェア
 おすすめのM5 Stack [ATOM Lite]<br/>
-https://www.switch-science.com/catalog/6262/
+https://www.switch-science.com/catalog/6262/<br/>
 コンパクトで安い。¥1400くらい。<br/>
 <br/>
 赤外線送受信ユニット。¥600くらい<br/>
