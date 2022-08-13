@@ -7,22 +7,22 @@ description: "話題のチューナーレスTVで使われているAndroid TV �
 
 # 必要ファイルのダウンロード
 以下の2つをダウンロード
-LineageOS
-https://konstakang.com/devices/rpi4/LineageOS18-ATV/
+LineageOS<br/>
+https://konstakang.com/devices/rpi4/LineageOS18-ATV/<br/>
 → Raspberry Pi Imager、Ether、ddなどでmicroSD に書き込む
 
-OpenGAPPS
-https://opengapps.org/?arch=arm64&api=11.0&variant=tvstock
+OpenGAPPS<br/>
+https://opengapps.org/?arch=arm64&api=11.0&variant=tvstock<br/>
 → USBメモリなどに配置
 
 >2022年8月13日現在、LineageOS 19 Android TV(Android 12L) は存在するが、Android 12Lに対応したopen_gappsはまだ存在しない。そのためLineageOS 18 Android TV(Android 11)を使用する。 
-
-
-
+<br>
+<br>
+<br>
 # 起動
 LineageOSを書き込んだmicroSDをRaspberryPiに挿入して起動。
-> 補足１：言語、ロケール、wifiの設定などは今は不要なので飛ばす。
-> 補足２：周辺のBluetooth機器は電源OFFにした方が良いかも。ペアリング成功するまで先に進めない。
+> 補足１：言語、ロケール、wifiの設定などは今は不要なので飛ばす。AndroidTV起動後に行えば良い。
+> 補足２：周辺のBluetooth機器は電源OFFにした方が良いかも。ペアリング成功するまで先に進めないっぽい。
 
 # 操作方法
 |  キー  |  概要  |
@@ -30,17 +30,17 @@ LineageOSを書き込んだmicroSDをRaspberryPiに挿入して起動。
 |  F2  | 戻る |
 
 # OpenGAPPSのインストール
-advanced restart optionsを有効にする
+## advanced restart optionsを有効にする<br>
 Settings →  System →  Buttons →  Advanced reboot
-再起動
+## リカバリモードで再起動
 Settings →  System →  Reboot → Recovery
 
 # 再起動後
-Install → 先程USBに保存したopen_gapps-arm64-11.0-tvstock-xxxxxxxx.zipを選択
-インストール終了したら、Back →  Wipe →  Factory reset →  再起動
+Install → 先程USBに保存したopen_gapps-arm64-11.0-tvstock-xxxxxxxx.zipを選択<br>
+インストール終了したら、Back →  Wipe →  Factory reset →  再起動<br>
 再起動後はAndroid TVになっているはず。
 
 
 # 資料
-公式：https://konstakang.com/devices/rpi4/LineageOS18-ATV/
+公式：https://konstakang.com/devices/rpi4/LineageOS18-ATV/<br>
 → 特に「How to install Google apps?」の情報
