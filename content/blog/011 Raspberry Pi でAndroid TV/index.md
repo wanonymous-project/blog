@@ -12,7 +12,8 @@ description: "話題のチューナーレスTVで使われているAndroid TV �
 LineageOS<br/>
 https://konstakang.com/devices/rpi4/LineageOS18-ATV/<br/>
 lineage-18.1-20220512-UNOFFICIAL-KonstaKANG-rpi4-atv.zip<br/>
-→ Raspberry Pi Imager、Ether、ddなどでmicroSD に書き込む
+→ Raspberry Pi Imager、Ether、ddなどでmicroSD に書き込む<br/>
+参考：<br/>
 ![](where_lineage_os_is.png)
 
 open_gapps<br/>
