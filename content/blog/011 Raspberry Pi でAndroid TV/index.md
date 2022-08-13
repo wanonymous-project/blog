@@ -4,6 +4,9 @@ date: "2022-08-13"
 description: "話題のチューナーレスTVで使われているAndroid TV をRaspberry Pi で使う。"
 ---
 
+# 使用機器
+・Raspberry Pi 4
+
 # 必要ファイルのダウンロード
 以下の2つをダウンロード
 LineageOS<br/>
