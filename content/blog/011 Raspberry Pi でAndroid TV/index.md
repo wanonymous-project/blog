@@ -33,12 +33,12 @@ open_gapps<br/>
 # 起動
 LineageOSを書き込んだmicroSDをRaspberryPiに挿入して起動。最初はBluetooth機器のペアリングをさせられる。[^1]<br/>
 手順（抜粋）<br/>
-Start → ... → Language：Englishのままで[^1] → ... → Select Your Wifi Network：Skip → ...<br/>
+Start → ... → Language：Englishのままで[^2] → ... → Select Your Wifi Network：Skip → ...<br/>
 大きく「Lineage」と表示されたら設定完了。右下の「Start」をクリック。<br/>
 
-> [^1]：周辺のBluetooth機器は電源OFFにした方が良いかも。ペアリング成功するまで先に進めないっぽい。
+> [^1]:周辺のBluetooth機器は電源OFFにした方が良いかも。ペアリング成功するまで先に進めないっぽい。
 
-> [^2]：言語、ロケール、wifiの設定などは今行っても無意味なので飛ばす。AndroidTV起動後に行えば良い。
+> [^2]:言語、ロケール、wifiの設定などは今行っても無意味なので飛ばす。AndroidTV起動後に行えば良い。
 
 
 # 操作方法
