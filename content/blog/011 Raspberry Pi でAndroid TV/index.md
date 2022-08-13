@@ -5,7 +5,8 @@ description: "話題のチューナーレスTVで使われているAndroid TV �
 ---
 
 # 使用機器
-・Raspberry Pi 4
+・Raspberry Pi 4<br>
+・キーボード、マウス、モニタが必要<br>
 <br>
 
 # 必要ファイルのダウンロード
@@ -31,7 +32,7 @@ open_gapps<br/>
 
 # 起動
 LineageOSを書き込んだmicroSDをRaspberryPiに挿入して起動。
-> 補足１：言語、ロケール、wifiの設定などは今は不要なので飛ばす。AndroidTV起動後に行えば良い。
+> 補足１：言語、ロケール、wifiの設定などは今行っても無意味なので飛ばす。AndroidTV起動後に行えば良い。
 
 > 補足２：周辺のBluetooth機器は電源OFFにした方が良いかも。ペアリング成功するまで先に進めないっぽい。
 
@@ -42,7 +43,7 @@ LineageOSを書き込んだmicroSDをRaspberryPiに挿入して起動。
 <br>
 <br>
 
-# OpenGAPPSのインストール
+# リカバリモードでLineageOSを再起動
 ## advanced restart options（リカバリモード）を有効にする<br>
 Settings →  System →  Buttons →  Advanced reboot
 ## リカバリモードで再起動
@@ -50,7 +51,7 @@ Settings →  System →  Reboot → Recovery
 <br>
 <br>
 
-# 再起動後
+# OpenGAppsのインストール
 Install → 先程USBに保存したopen_gapps-arm64-11.0-tvstock-xxxxxxxx.zipを選択<br>
 インストール終了したら、Back →  Wipe →  Factory reset →  再起動<br>
 再起動後はAndroid TVになっているはず。
