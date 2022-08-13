@@ -18,6 +18,7 @@ LineageOS<br/>
 
 参考：<br/>
 ![lieage osの場所の画像](where_lineage_os_is.png)
+<br>
 
 open_gapps<br/>
 
