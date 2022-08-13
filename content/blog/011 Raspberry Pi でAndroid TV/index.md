@@ -12,15 +12,17 @@ description: "話題のチューナーレスTVで使われているAndroid TV �
 以下の2つをダウンロード<br/>
 <br/>
 LineageOS<br/>
-| https://konstakang.com/devices/rpi4/LineageOS18-ATV/<br/>
-| lineage-18.1-20220512-UNOFFICIAL-KonstaKANG-rpi4-atv.zip<br/>
-| → Raspberry Pi Imager、Ether、ddなどでmicroSD に書き込む<br/>
+
+|  https://konstakang.com/devices/rpi4/LineageOS18-ATV/<br/>
+|  → Raspberry Pi Imager、Ether、ddなどでmicroSD に書き込む<br/>
+
 参考：<br/>
-![](where_lineage_os_is.png)
+![lieage osの場所の画像](where_lineage_os_is.png)
 
 open_gapps<br/>
-| https://opengapps.org/?arch=arm64&api=11.0&variant=tvstock<br/>
-| → USBメモリなどに配置
+
+|  https://opengapps.org/?arch=arm64&api=11.0&variant=tvstock<br/>
+|  → USBメモリなどに配置
 
 >2022年8月13日現在、LineageOS 19 Android TV(Android 12L) は存在するが、Android 12Lに対応したopen_gappsはまだ存在しない。そのためLineageOS 18 Android TV(Android 11)を使用する。 
 <br>
