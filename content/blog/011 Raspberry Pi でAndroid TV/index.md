@@ -52,13 +52,16 @@ Start → ... → Language：Englishのままで[^2] → ... → Select Your Wif
 ## advanced restart options（リカバリモード）を有効にする<br>
 Settings（右上の歯車）→  System →  Buttons →  Advanced reboot
 ## リカバリモードで再起動
-System に戻る →  Reboot → Recovery
+Settings:System に戻る →  Reboot → Recovery
 <br>
 <br>
 
 # OpenGAppsのインストール
-リカバリモードで起動できたら<br>
-Install → Select Storage → 先程USBに保存したopen_gapps-arm64-11.0-tvstock-xxxxxxxx.zipを選択 → Swipe to confirm Flash（マウスでスマホ風にスワイプする）→ ... done が表示されたら左上の「↓↑」をクリック →  Wipe →  Swipe to Factory reset → Reboot System<br>
+リカバリモードで起動できたら、先程のUSBメモリをRaspberryPiに挿す。<br>
+Install → Select Storage → USBメモリを選択<br>
+→ 保存したopen_gapps-arm64-11.0-tvstock-xxxxxxxx.zipを選択 → Swipe to confirm Flash（マウスでスマホ風にスワイプする）<br>
+→ インストール処理が始まる(しばらく待つ)　→ ... done が表示されたら左上の「↓↑」をクリック →  Wipe →  Swipe to Factory reset → Reboot System<br>
+<br>
 再起動後はAndroid TVになっているはず。
 <br>
 <br>
