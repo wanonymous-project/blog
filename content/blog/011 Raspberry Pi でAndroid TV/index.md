@@ -8,7 +8,9 @@ description: "話題のチューナーレスTVで使われているAndroid TV �
 以下の2つをダウンロード
 LineageOS<br/>
 https://konstakang.com/devices/rpi4/LineageOS18-ATV/<br/>
+lineage-18.1-20220512-UNOFFICIAL-KonstaKANG-rpi4-atv.zip<br/>
 → Raspberry Pi Imager、Ether、ddなどでmicroSD に書き込む
+![](where_lineage_os_is.png)
 
 open_gapps<br/>
 https://opengapps.org/?arch=arm64&api=11.0&variant=tvstock<br/>
@@ -21,6 +23,7 @@ https://opengapps.org/?arch=arm64&api=11.0&variant=tvstock<br/>
 # 起動
 LineageOSを書き込んだmicroSDをRaspberryPiに挿入して起動。
 > 補足１：言語、ロケール、wifiの設定などは今は不要なので飛ばす。AndroidTV起動後に行えば良い。
+
 > 補足２：周辺のBluetooth機器は電源OFFにした方が良いかも。ペアリング成功するまで先に進めないっぽい。
 
 # 操作方法
@@ -31,7 +34,7 @@ LineageOSを書き込んだmicroSDをRaspberryPiに挿入して起動。
 <br>
 
 # OpenGAPPSのインストール
-## advanced restart optionsを有効にする<br>
+## advanced restart options（リカバリモード）を有効にする<br>
 Settings →  System →  Buttons →  Advanced reboot
 ## リカバリモードで再起動
 Settings →  System →  Reboot → Recovery
