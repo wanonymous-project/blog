@@ -6,6 +6,7 @@ description: "話題のチューナーレスTVで使われているAndroid TV �
 
 # 使用機器
 ・Raspberry Pi 4
+<br>
 
 # 必要ファイルのダウンロード
 以下の2つをダウンロード
