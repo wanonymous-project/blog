@@ -57,8 +57,7 @@ System に戻る →  Reboot → Recovery
 <br>
 
 # OpenGAppsのインストール
-Install → Select Storage → 先程USBに保存したopen_gapps-arm64-11.0-tvstock-xxxxxxxx.zipを選択 → Swipe to confirm Flash（マウスでスマホ風にスワイプする）→<br>
-インストール終了したら、Back →  Wipe →  Factory reset →  再起動<br>
+Install → Select Storage → 先程USBに保存したopen_gapps-arm64-11.0-tvstock-xxxxxxxx.zipを選択 → Swipe to confirm Flash（マウスでスマホ風にスワイプする）→ ... done が表示されたら左上の「↓↑」をクリック →  Wipe →  Swipe to Factory reset → Reboot System<br>
 再起動後はAndroid TVになっているはず。
 <br>
 <br>
