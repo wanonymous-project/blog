@@ -66,6 +66,14 @@ Install → Select Storage → USBメモリを選択<br>
 <br>
 <br>
 
+# 補足
+GPIOを使って色々できるっぽい
+・赤外線リモコン受信機能<br>
+・電源ボタン、音量ボタン（上げ、下げ）<br>
+・BME280で温湿度、気圧値表示？<br>
+・APDS-9930を使った照度制御<br>
+<br>
+
 # 資料
 公式：https://konstakang.com/devices/rpi4/LineageOS18-ATV/<br>
 → 特に「How to install Google apps?」の情報
