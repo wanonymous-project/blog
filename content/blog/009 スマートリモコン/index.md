@@ -71,3 +71,8 @@ ESP32は開発ボード（DevBoard）を選んで USB給電する事。<br/>
 
 ## ESP32 - ソフトウェア
 基本的にはM5 Stack の場合と同じ。
+
+
+# 資料
+赤外線LEDの基礎的な情報
+https://電子うさぎ.com/archives/13164
