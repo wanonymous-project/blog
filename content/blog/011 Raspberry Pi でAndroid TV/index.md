@@ -79,7 +79,7 @@ GPIOを使って色々できるっぽい<br>
 対応：**AndroidTV版ではなく**、スマホ版の.apkファイルでインストールする再生できる。ただし少し面倒。<br>
 ・特にDアニメストアはどう頑張っても再生できなかった。<br>
 疑問：チューナーレスTVのAndroidTVでは再生できる？<br>
-蛇足：Amazon Prime、Netflix、Disney+ に比べると、なんとなく対応力の低さを感じた。ラズパイ等に興味ある人を一人でも増やして、日本のソフトウェア業界の底上げに少しでも貢献できると良いな、と改めて感じる。<br>
+蛇足：Amazon Prime、Netflix、Disney+ に比べると、なんとなく対応力の低さを感じた。今後に期待。<br>
 
 # 資料
 公式：https://konstakang.com/devices/rpi4/LineageOS18-ATV/<br>
