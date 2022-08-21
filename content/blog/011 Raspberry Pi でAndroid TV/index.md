@@ -74,6 +74,12 @@ GPIOを使って色々できるっぽい<br>
 ・APDS-9930を使った照度制御<br>
 <br>
 
+# 2022年8月21日追記
+・amazon prime、Netflix などスマホ版の.apkファイルを使う必要があり、色々と面倒。<br>
+・特にDアニメストアはどう頑張っても再生できなかった。チューナーレスTVのAndroidTVでは再生できるのか？<br>
+（Amazon Prime やDisney+ に比べると対応力の低さを感じた。今後に期待。）<br>
+<br>
+
 # 資料
 公式：https://konstakang.com/devices/rpi4/LineageOS18-ATV/<br>
 → 特に「How to install Google apps?」の情報
