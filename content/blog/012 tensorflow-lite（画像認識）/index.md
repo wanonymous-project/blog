@@ -25,7 +25,11 @@ PYVER=39
 ARCH=aarch64
 
 # そのあと　sudo -H pip3 install \　以降の行を実行（そこでこれらの変数が使われる）
+
+# インストールが終了したら確認
+python -c 'import tensorflow as tf;print(tf.__version__)'
 ```
+
 | 変数名 |  意味 |
 | ---- | ---- |
 | TFVER | tensorflow-liteのバージョン。値：2.1.0~2.10.0 |
@@ -40,7 +44,8 @@ python -c 'import platform; print(platform.machine())'	# ARCHの確認方法
 
 
 # モデルファイルのダウンロード
-
+（編集中）
 
 
 # 認識
+（編集中）
