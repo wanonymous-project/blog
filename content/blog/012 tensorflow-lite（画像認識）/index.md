@@ -20,7 +20,7 @@ PINT0309の#USAGE
 ・TFVER=2.10.0-rc1　以降はbash変数の設定
 こんな感じ
 ```bash
-TFVER=2.10.0-rc1
+TFVER=2.9.0
 PYVER=39
 ARCH=aarch64
 
@@ -37,3 +37,10 @@ ARCH=aarch64
 python3 -V							                    # PYVERの確認方法
 python -c 'import platform; print(platform.machine())'	# ARCHの確認方法
 ```
+
+
+# モデルファイルのダウンロード
+
+
+
+# 認識
