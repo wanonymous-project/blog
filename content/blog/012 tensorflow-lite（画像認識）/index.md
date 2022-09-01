@@ -6,8 +6,9 @@ description: "tensorflow-lite で画像認識"
 
 # 概要
 PINTO0309という人のGithubレポジトリ（以下PINTO0309とする）を使うことで、簡単にインストール可能。
+https://github.com/PINTO0309/TensorflowLite-bin
 
-ポイント
+ポイント<br>
 ・パフォーマンスを考えると、TensorflowよりTensorflow-liteのほうが無難。
 ・「aarch64 OS」のほうがパフォーマンスが良いらしい
 ・USBカメラの画像を取得するにはOpenCVのVideoCapturメソッドを使う。
