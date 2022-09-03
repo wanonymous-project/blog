@@ -51,10 +51,45 @@ python3 -V							                    # PYVERの確認方法
 python -c 'import platform; print(platform.machine())'	# ARCHの確認方法
 ```
 
+# 必要ファイルのダウンロード（任意）
+次は PINT0309の #operation-check-classification を参考に必要ファイルをダウンロード<br>
+https://github.com/PINTO0309/TensorflowLite-bin#operation-check-classification のEnvironmental preparation<br>
+<br>
+少し改造したスクリプトをここに記述する<br>
 
-# モデルファイルのダウンロード
-（編集中）
+```bash
+# 作業ディレクトリを作成
+cd ~;mkdir test;mkdir test/images;mkdir test/models
+# 画像ファイルをダウンロード
+curl https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/lite/examples/label_image/testdata/grace_hopper.bmp > ~/test/images/grace_hopper.bmp
+# ラベルファイルをダウンロード（画像認識の結果のint値[数値]を文字列に変える為のファイル）
+curl https://storage.googleapis.com/download.tensorflow.org/models/mobilenet_v1_1.0_224_frozen.tgz | tar xzv -C ~/test mobilenet_v1_1.0_224/labels.txt
+# モデルファイルをダウンロード
+mv ~/test/mobilenet_v1_1.0_224/labels.txt ~/test/models/
+curl http://download.tensorflow.org/models/mobilenet_v1_2018_02_22/mobilenet_v1_1.0_224_quant.tgz | tar xzv -C ~/test/models
+# 作業ディレクトリに移動
+cd ~/test
+```
 
+label_image.py というスクリプトをコピペ<br>
+https://github.com/PINTO0309/TensorflowLite-bin#operation-check-classification のlabel_image.py<br>
+<br>もしくはダウンロード
+https://github.com/PINTO0309/TensorflowLite-bin/blob/main/label_image.py<br>
+実行<br>
+```bash
+
+```
 
 # 認識
 （編集中）
+
+
+# USBカメラを使った認識
+（編集中）
+
+# モデルファイルを自作する
+（編集中）
+まだよく分かっていない。都度編集の予定。
+・Google がチュートリアルを出しているので参考にする。
+例：https://www.tensorflow.org/lite/guide/model_maker?hl=ja<br>
+・モデルファイル作成には強力なGPU が必要。Google Colaboratory を使うのが無難（無料）<br>
