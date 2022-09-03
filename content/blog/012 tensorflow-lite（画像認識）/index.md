@@ -38,9 +38,12 @@ python -c 'import platform; print(platform.machine())'	# ARCHの確認方法
 ```
 
 ## インストール
+そのあと　sudo -H pip3 install \　以降の行を実行する事でtensorflow-lite をインストール出来る。<br>
+（上で設定した変数は、ここで使われる）<br>
+https://github.com/PINTO0309/TensorflowLite-bin#usage<br>
 
 ```bash
-# そのあと　sudo -H pip3 install \　以降の行を実行（そこでこれらの変数が使われる）
+# 
 # 念の為、まったく同じスクリプトをここにも記述。
 sudo -H pip3 install \
 --no-cache-dir \
