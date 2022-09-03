@@ -58,15 +58,14 @@ https://github.com/PINTO0309/TensorflowLite-bin#operation-check-classification �
 少し改造したスクリプトをここに記述する<br>
 
 ```bash
-# 作業ディレクトリを作成
-cd ~;mkdir test;mkdir test/images;mkdir test/models
+# 必要なディレクトリを作成
+mkdir ~/tflite-bin/images;mkdir ~/tflite-bin/models
 # 画像ファイルをダウンロード
-curl https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/lite/examples/label_image/testdata/grace_hopper.bmp > ~/test/images/grace_hopper.bmp
+curl https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/lite/examples/label_image/testdata/grace_hopper.bmp > ~/tflite-bin/images/grace_hopper.bmp
 # ラベルファイルをダウンロード（画像認識の結果のint値[数値]を文字列に変える為のファイル）
-curl https://storage.googleapis.com/download.tensorflow.org/models/mobilenet_v1_1.0_224_frozen.tgz | tar xzv -C ~/test mobilenet_v1_1.0_224/labels.txt
+curl https://storage.googleapis.com/download.tensorflow.org/models/mobilenet_v1_1.0_224_frozen.tgz | tar xzv -C ~/tflite-bin/models/labels.txt
 # モデルファイルをダウンロード
-mv ~/test/mobilenet_v1_1.0_224/labels.txt ~/test/models/
-curl http://download.tensorflow.org/models/mobilenet_v1_2018_02_22/mobilenet_v1_1.0_224_quant.tgz | tar xzv -C ~/test/models
+curl http://download.tensorflow.org/models/mobilenet_v1_2018_02_22/mobilenet_v1_1.0_224_quant.tgz | tar xzv -C ~/tflite-bin/models
 # 作業ディレクトリに移動
 cd ~/test
 ```
@@ -75,9 +74,16 @@ label_image.py というスクリプトをコピペ<br>
 https://github.com/PINTO0309/TensorflowLite-bin#operation-check-classification のlabel_image.py<br>
 <br>もしくはダウンロード
 https://github.com/PINTO0309/TensorflowLite-bin/blob/main/label_image.py<br>
+<br>
+<br>
 実行<br>
-```bash
 
+```bash
+python3 label_image.py \
+--num_threads 4 \
+--image images/grace_hopper.bmp \
+--model_file models/mobilenet_v1_1.0_224_quant.tflite \
+--label_file models/labels.txt
 ```
 
 # 認識
