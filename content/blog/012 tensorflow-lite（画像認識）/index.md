@@ -95,7 +95,7 @@ https://github.com/PINTO0309/TensorflowLite-bin/blob/main/label_image.py<br>
 
 ```bash
 python3 label_image.py \
---image images/grace_hopper.bmp
+--image images/grace_hopper.bmp \
 --model_file models/mobilenet_v1_1.0_224_quant.tflite \
 --label_file models/labels.txt
 # 認識はしてるようだが、このスクリプトでは座標位置などの情報は取れない為、あまり意味が無い。
