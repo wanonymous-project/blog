@@ -17,7 +17,15 @@ https://github.com/PINTO0309/TensorflowLite-bin
 ## PINT0309の#USAGE
 
 PINT0309の#USAGE<br>
+https://github.com/PINTO0309/TensorflowLite-bin#usage<br>
 ・apt パッケージのインストール。最初の$が不要なだけでそのままコピペ。<br>
+・apt パッケージのインストール後、念の為作業ディレクトリを作成。＋仮想環境を有効化。<br>
+```bash
+mkdir tflite-bin
+cd tflite-bin
+python -m venv venv
+source venv/bin/activate
+```
 ・TFVER=2.10.0-rc1　以降はbash変数の設定<br>
 こんな感じ<br>
 ```bash
