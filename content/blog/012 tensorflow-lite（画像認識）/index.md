@@ -95,17 +95,16 @@ https://github.com/PINTO0309/TensorflowLite-bin/blob/main/label_image.py<br>
 
 ```bash
 python3 label_image.py \
---num_threads 4 \
---image images/grace_hopper.bmp \
---model_file models/mobilenet_v1_1.0_224_quant.tflite \
---label_file models/labels.txt
-
-python3 label_image.py \
 --image images/grace_hopper.bmp
 --model_file models/mobilenet_v1_1.0_224_quant.tflite \
 --label_file models/labels.txt
 # 認識はしてるようだが、このスクリプトでは座標位置などの情報は取れない為、あまり意味が無い。
 ```
+
+> 補足
+> label_image.py のargparse.ArgumentParser() のdefault の値はそれぞれ変。
+> 今回は label_image.py 実行時のコマンドライン引数で調整したが、
+> label_image.py 内のdefault 値を変更しても良い
 
 # 認識
 （編集中）
