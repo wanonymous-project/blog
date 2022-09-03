@@ -33,6 +33,10 @@ ARCH=aarch64
 | PYVER | pythonのバージョン。 |
 | ARCH | OSのアーキテクチャー。 |
 
+```bash
+python3 -V							                    # PYVERの確認方法
+python -c 'import platform; print(platform.machine())'	# ARCHの確認方法
+```
 
 ```bash
 # そのあと　sudo -H pip3 install \　以降の行を実行（そこでこれらの変数が使われる）
@@ -49,14 +53,6 @@ pip3 install numpy
 pip3 install Pillow
 pip3 install tflite_runtime     # ?? なぜこれが必要？
 ```
-
-
-
-```bash
-python3 -V							                    # PYVERの確認方法
-python -c 'import platform; print(platform.machine())'	# ARCHの確認方法
-```
-
 # 必要ファイルのダウンロード（任意）
 次は PINT0309の #operation-check-classification を参考に必要ファイルをダウンロード<br>
 https://github.com/PINTO0309/TensorflowLite-bin#operation-check-classification のEnvironmental preparation<br>
