@@ -19,13 +19,6 @@ https://github.com/PINTO0309/TensorflowLite-bin
 PINT0309の#USAGE<br>
 https://github.com/PINTO0309/TensorflowLite-bin#usage<br>
 ・apt パッケージのインストール。最初の$が不要なだけでそのままコピペ。<br>
-・apt パッケージのインストール後、念の為作業ディレクトリを作成。＋仮想環境を有効化。<br>
-```bash
-mkdir tflite-bin
-cd tflite-bin
-python -m venv venv
-source venv/bin/activate
-```
 ・TFVER=2.10.0-rc1　以降はbash変数の設定<br>
 こんな感じ<br>
 ```bash
@@ -72,7 +65,7 @@ https://github.com/PINTO0309/TensorflowLite-bin#operation-check-classification �
 
 ```bash
 # 必要なディレクトリを作成
-mkdir ~/tflite-bin/images; mkdir ~/tflite-bin/models
+cd; mkdir tflite-bin; cd tflite-bin; mkdir ~/tflite-bin/images; mkdir ~/tflite-bin/models
 # 画像ファイルをダウンロード
 curl https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/lite/examples/label_image/testdata/grace_hopper.bmp > ~/tflite-bin/images/grace_hopper.bmp
 # ラベルファイルをダウンロード（画像認識の結果のint値[数値]を文字列に変える為のファイル）
@@ -80,8 +73,6 @@ curl https://storage.googleapis.com/download.tensorflow.org/models/mobilenet_v1_
 mv ~/mobilenet_v1_1.0_224/labels.txt ~/tflite-bin/models;rm -r ~/mobilenet_v1_1.0_224/
 # モデルファイルをダウンロード
 curl http://download.tensorflow.org/models/mobilenet_v1_2018_02_22/mobilenet_v1_1.0_224_quant.tgz | tar xzv -C ~/tflite-bin/models
-# 作業ディレクトリに移動
-cd ~/test
 ```
 
 label_image.py というスクリプトを ~/tflite-bin/ 直下にコピペ<br>
