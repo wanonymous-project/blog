@@ -50,6 +50,11 @@ https://github.com/PINTO0309/TensorflowLite-bin/releases/download/v${TFVER}/tfli
 
 # インストールが終了したら確認
 python -c 'import tensorflow as tf;print(tf.__version__)'
+
+# 追加で必要となる pip ライブラリ
+pip3 install numpy
+pip3 install Pillow
+pip3 install tflite_runtime     # ?? なぜこれが必要？
 ```
 
 
@@ -84,6 +89,20 @@ https://github.com/PINTO0309/TensorflowLite-bin#operation-check-classification �
 もしくは<br>
 https://github.com/PINTO0309/TensorflowLite-bin/blob/main/label_image.py<br>
 <br>
+一箇所だけ修正が必要 53行目付近<br>
+
+```python
+  #interpreter = Interpreter(
+  #  model_path="foo.tflite",
+  #  num_threads=args.num_threads
+  #)
+  # ↓
+  interpreter = Interpreter(
+    model_path=args.model_file,
+    num_threads=args.num_threads
+  )
+```
+
 <br>
 実行<br>
 
@@ -91,6 +110,11 @@ https://github.com/PINTO0309/TensorflowLite-bin/blob/main/label_image.py<br>
 python3 label_image.py \
 --num_threads 4 \
 --image images/grace_hopper.bmp \
+--model_file models/mobilenet_v1_1.0_224_quant.tflite \
+--label_file models/labels.txt
+
+python3 label_image.py \
+--image images/grace_hopper.bmp
 --model_file models/mobilenet_v1_1.0_224_quant.tflite \
 --label_file models/labels.txt
 # 認識はしてるようだが、このスクリプトでは座標位置などの情報は取れない為、あまり意味が無い。
