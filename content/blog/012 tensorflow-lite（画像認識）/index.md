@@ -32,7 +32,16 @@ source venv/bin/activate
 TFVER=2.9.0
 PYVER=39
 ARCH=aarch64
+```
 
+| 変数名 |  意味 |
+| ---- | ---- |
+| TFVER | tensorflow-liteのバージョン。値：2.1.0~2.10.0 |
+| PYVER | pythonのバージョン。 |
+| ARCH | OSのアーキテクチャー。 |
+
+
+```bash
 # そのあと　sudo -H pip3 install \　以降の行を実行（そこでこれらの変数が使われる）
 # 念の為、まったく同じスクリプトをここにも記述。
 sudo -H pip3 install \
@@ -43,11 +52,6 @@ https://github.com/PINTO0309/TensorflowLite-bin/releases/download/v${TFVER}/tfli
 python -c 'import tensorflow as tf;print(tf.__version__)'
 ```
 
-| 変数名 |  意味 |
-| ---- | ---- |
-| TFVER | tensorflow-liteのバージョン。値：2.1.0~2.10.0 |
-| PYVER | pythonのバージョン。 |
-| ARCH | OSのアーキテクチャー。 |
 
 
 ```bash
@@ -89,6 +93,7 @@ python3 label_image.py \
 --image images/grace_hopper.bmp \
 --model_file models/mobilenet_v1_1.0_224_quant.tflite \
 --label_file models/labels.txt
+# 認識はしてるようだが、このスクリプトでは座標位置などの情報は取れない為、あまり意味が無い。
 ```
 
 # 認識
