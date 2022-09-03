@@ -9,17 +9,17 @@ PINTO0309という人のGithubレポジトリ（以下PINTO0309とする）を�
 https://github.com/PINTO0309/TensorflowLite-bin
 
 ポイント<br>
-・パフォーマンスを考えると、TensorflowよりTensorflow-liteのほうが無難。
-・「aarch64 OS」のほうがパフォーマンスが良いらしい
-・USBカメラの画像を取得するにはOpenCVのVideoCapturメソッドを使う。
+・パフォーマンスを考えると、TensorflowよりTensorflow-liteのほうが無難。<br>
+・「aarch64 OS」のほうがパフォーマンスが良いらしい<br>
+・USBカメラの画像を取得するにはOpenCVのVideoCapturメソッドを使う。<br>
 
 # インストール
 ## PINT0309の#USAGE
 
-PINT0309の#USAGE
-・apt パッケージのインストール。最初の$が不要なだけでそのままコピペ。
-・TFVER=2.10.0-rc1　以降はbash変数の設定
-こんな感じ
+PINT0309の#USAGE<br>
+・apt パッケージのインストール。最初の$が不要なだけでそのままコピペ。<br>
+・TFVER=2.10.0-rc1　以降はbash変数の設定<br>
+こんな感じ<br>
 ```bash
 TFVER=2.9.0
 PYVER=39
