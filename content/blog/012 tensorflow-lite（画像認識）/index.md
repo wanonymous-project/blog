@@ -34,6 +34,10 @@ PYVER=39
 ARCH=aarch64
 
 # そのあと　sudo -H pip3 install \　以降の行を実行（そこでこれらの変数が使われる）
+# 念の為、まったく同じスクリプトをここにも記述。
+sudo -H pip3 install \
+--no-cache-dir \
+https://github.com/PINTO0309/TensorflowLite-bin/releases/download/v${TFVER}/tflite_runtime-`echo ${TFVER} | tr -d -`-cp${PYVER}-none-linux_${ARCH}.whl
 
 # インストールが終了したら確認
 python -c 'import tensorflow as tf;print(tf.__version__)'
