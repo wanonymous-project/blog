@@ -11,7 +11,7 @@ https://github.com/PINTO0309/TensorflowLite-bin
 ポイント<br>
 ・パフォーマンスを考えると、TensorflowよりTensorflow-liteのほうが無難。<br>
 ・「aarch64 OS」のほうがパフォーマンスが良いらしい<br>
-・USBカメラの画像を取得するにはOpenCVのVideoCapturメソッドを使う。<br>
+・USBカメラの画像を取得するにはOpenCVのVideoCaptureメソッドを使う。<br>
 
 # インストール
 ## PINT0309の#USAGE
@@ -43,7 +43,6 @@ python -c 'import platform; print(platform.machine())'	# ARCHの確認方法
 https://github.com/PINTO0309/TensorflowLite-bin#usage<br>
 
 ```bash
-# 
 # 念の為、まったく同じスクリプトをここにも記述。
 sudo -H pip3 install \
 --no-cache-dir \
