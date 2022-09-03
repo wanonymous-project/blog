@@ -53,10 +53,12 @@ https://github.com/PINTO0309/TensorflowLite-bin/releases/download/v${TFVER}/tfli
 python -c 'import tensorflow as tf;print(tf.__version__)'
 ```
 # label_image.py でテスト（任意）
-次は PINT0309の #operation-check-classification を参考に必要ファイルをダウンロード<br>
+## 必要ファイルをダウンロード
+次は PINT0309の #operation-check-classification を参考にテストを行う。<br>
+まずは必要ファイルのダウンロード。<br>
 https://github.com/PINTO0309/TensorflowLite-bin#operation-check-classification のEnvironmental preparation<br>
 <br>
-少し改造したダウンロード用スクリプトをここに記述する<br>
+少し改造したダウンロード用スクリプトをここに記述する。<br>
 
 ```bash
 # 必要なディレクトリを作成
@@ -69,7 +71,9 @@ mv ~/mobilenet_v1_1.0_224/labels.txt ~/tflite-bin/models;rm -r ~/mobilenet_v1_1.
 # モデルファイルをダウンロード
 curl http://download.tensorflow.org/models/mobilenet_v1_2018_02_22/mobilenet_v1_1.0_224_quant.tgz | tar xzv -C ~/tflite-bin/models
 ```
+<br>
 
+## label_image.py のダウンロード
 label_image.py というスクリプトを ~/tflite-bin/ 直下にコピペ<br>
 https://github.com/PINTO0309/TensorflowLite-bin#operation-check-classification のlabel_image.py<br>
 もしくは<br>
