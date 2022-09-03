@@ -47,11 +47,6 @@ https://github.com/PINTO0309/TensorflowLite-bin/releases/download/v${TFVER}/tfli
 
 # インストールが終了したら確認
 python -c 'import tensorflow as tf;print(tf.__version__)'
-
-# 追加で必要となる pip ライブラリ
-pip3 install numpy
-pip3 install Pillow
-pip3 install tflite_runtime     # ?? なぜこれが必要？
 ```
 # 必要ファイルのダウンロード（任意）
 次は PINT0309の #operation-check-classification を参考に必要ファイルをダウンロード<br>
