@@ -52,11 +52,11 @@ https://github.com/PINTO0309/TensorflowLite-bin/releases/download/v${TFVER}/tfli
 # インストールが終了したら確認
 python -c 'import tensorflow as tf;print(tf.__version__)'
 ```
-# 必要ファイルのダウンロード（任意）
+# label_image.py でテスト（任意）
 次は PINT0309の #operation-check-classification を参考に必要ファイルをダウンロード<br>
 https://github.com/PINTO0309/TensorflowLite-bin#operation-check-classification のEnvironmental preparation<br>
 <br>
-少し改造したスクリプトをここに記述する<br>
+少し改造したダウンロード用スクリプトをここに記述する<br>
 
 ```bash
 # 必要なディレクトリを作成
