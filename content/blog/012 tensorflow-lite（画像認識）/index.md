@@ -106,11 +106,11 @@ python3 label_image.py \
 
 
 # USBカメラを使った認識
-（編集中）
+（編集中）<br>
 
 # モデルファイルを自作する
-（編集中）
-まだよく分かっていない。都度編集の予定。
-・Google がチュートリアルを出しているので参考にする。
+（編集中）<br>
+まだよく分かっていない。都度編集の予定。<br>
+・Google がチュートリアルを出しているので参考にする。<br>
 例：https://www.tensorflow.org/lite/guide/model_maker?hl=ja<br>
 ・モデルファイル作成には強力なGPU が必要。Google Colaboratory を使うのが無難（無料）<br>
