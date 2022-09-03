@@ -15,7 +15,6 @@ https://github.com/PINTO0309/TensorflowLite-bin
 
 # インストール
 ## PINT0309の#USAGE
-
 PINT0309の#USAGE<br>
 https://github.com/PINTO0309/TensorflowLite-bin#usage<br>
 ・apt パッケージのインストール。最初の$が不要なだけでそのままコピペ。<br>
@@ -37,6 +36,8 @@ ARCH=aarch64
 python3 -V							                    # PYVERの確認方法
 python -c 'import platform; print(platform.machine())'	# ARCHの確認方法
 ```
+
+## インストール
 
 ```bash
 # そのあと　sudo -H pip3 install \　以降の行を実行（そこでこれらの変数が使われる）
