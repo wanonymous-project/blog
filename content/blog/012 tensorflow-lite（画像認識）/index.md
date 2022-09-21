@@ -153,10 +153,13 @@ if __name__ == '__main__':
     # 入力画像の変換（行列≒配列の次元を増やす）
     input_data = np.expand_dims(img, axis=0)
 
+    # 入力テンソル（≒配列）の設定
+    interpreter.set_tensor(input_details[0]['index'], input_data)
+
     # 推論実行
     interpreter.invoke()
 
-    # 推論結果を格納する list
+    # 推論結果
     boxes = interpreter.get_tensor(output_details[0]['index'])[0]     # 検出のバウンディングボックス
     classes = interpreter.get_tensor(output_details[1]['index'])[0]   # 分類されたラベル情報
     scores = interpreter.get_tensor(output_details[2]['index'])[0]		# 一致率
