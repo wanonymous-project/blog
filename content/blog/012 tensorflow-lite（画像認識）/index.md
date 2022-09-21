@@ -111,16 +111,16 @@ python3 label_image.py \
 # 認識
 出来る限りの最小限コード<br/>
 <br/>
----
+<hr>
 ディレクトリ構成
-├ images
-│ ├ grace_hopper.bmp                                 テスト画像。なんでも良い
-├ models
-│ ├ coco_labels.txt
-│ ├ mobilenet_ssd_v2_coco_quant_postprocess.tflite  
-├ venv
-├ detect_lite.py
----
+├ images<br/>
+│ ├ grace_hopper.bmp                                 テスト画像。なんでも良い<br/>
+├ models<br/>
+│ ├ coco_labels.txt<br/>
+│ ├ mobilenet_ssd_v2_coco_quant_postprocess.tflite<br/>
+├ venv<br/>
+├ detect_lite.py<br/>
+<hr>
 
 <br>
 [detect_lite.py]
