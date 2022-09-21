@@ -113,12 +113,11 @@ python3 label_image.py \
 <br/>
 ディレクトリ構成<br/>
 <hr>
-├ images<br/>
-│ ├ grace_hopper.bmp                                 テスト画像。なんでも良い<br/>
-├ models<br/>
-│ ├ coco_labels.txt<br/>
-│ ├ mobilenet_ssd_v2_coco_quant_postprocess.tflite<br/>
-├ venv<br/>
+├ images \<br/>
+│ ├ grace_hopper.bmp    (テスト画像。なんでも良い)<br/>
+├ models \<br/>
+│ ├ coco_labels.txt    (ラベルファイル)<br/>
+│ ├ mobilenet_ssd_v2_coco_quant_postprocess.tflite    (モデルファイル)<br/>
 ├ detect_lite.py<br/>
 <hr>
 
@@ -128,7 +127,7 @@ python3 label_image.py \
 ```python
 import argparse
 import numpy as np
-from PIL import Image
+from PIL import Image                                 # pip3 install Pillow
 from tflite_runtime.interpreter import Interpreter
 
 def load_labels(filename):
