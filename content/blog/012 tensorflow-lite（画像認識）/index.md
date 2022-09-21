@@ -109,8 +109,79 @@ python3 label_image.py \
 > label_image.py 内のdefault 値を変更しても良い
 
 # 認識
-（編集中）
+出来る限りの最小限コード<br/>
+<br/>
+ディレクトリ構成
+|!
+├
+|:-:|
 
+
+```python
+import argparse
+import numpy as np
+from PIL import Image
+from tflite_runtime.interpreter import Interpreter
+
+def load_labels(filename):
+    my_labels = []
+    input_file = open(filename, 'r')
+    for l in input_file:
+        my_labels.append(l.strip())
+    return my_labels
+
+if __name__ == '__main__':
+    # コマンドライン引数(argparse)の処理
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-i", "--image", default="images/grace_hopper.bmp", \
+        help="image to be classified")
+    parser.add_argument("-m", "--model_file", \
+        #default="models/mobilenet_v1_1.0_224_quant.tflite", \
+        default="models/mobilenet_ssd_v2_coco_quant_postprocess.tflite", \
+    help=".tflite model to be executed")
+    
+    #parser.add_argument("-l", "--label_file", default="models/mobilenet_labels.txt", \
+    parser.add_argument("-l", "--label_file", default="models/coco_labels.txt", \
+    
+    help="name of file containing labels")
+    parser.add_argument("--input_mean", default=127.5, help="input_mean")
+    parser.add_argument("--input_std", default=127.5, \
+        help="input standard deviation")
+    parser.add_argument("--num_threads", default=1, help="number of threads")  
+
+    args = parser.parse_args()
+
+
+    # モデルファイル読み込み
+    interpreter = Interpreter(model_path=args.model_file, num_threads=args.num_threads)
+    
+    # メモリ確保
+    interpreter.allocate_tensors()
+
+    # 学習モデルの入力層・出力層のプロパティを取得
+    input_details = interpreter.get_input_details()
+    output_details = interpreter.get_output_details()
+
+    # 入力層の情報から画像サイズを取り出す
+    height = input_details[0]['shape'][1]
+    width = input_details[0]['shape'][2]
+    
+    # 画像ファイルの読み込み
+    img = Image.open(args.image)
+    img = img.resize((width, height))
+    
+    # 入力画像の変換
+    input_data = np.expand_dims(img, axis=0)
+
+    # 推論実行
+    interpreter.invoke()
+
+    # 推論結果
+    output_data = interpreter.get_tensor(output_details[0]['index'])  # 結果を全て
+    boxes = interpreter.get_tensor(output_details[0]['index'])[0]     # 検出のバウンディングボックス
+    classes = interpreter.get_tensor(output_details[1]['index'])[0]   # 分類されたラベル情報
+    scores = interpreter.get_tensor(output_details[2]['index'])[0]		# 一致率
+```
 
 # USBカメラを使った認識
 （編集中）<br>
