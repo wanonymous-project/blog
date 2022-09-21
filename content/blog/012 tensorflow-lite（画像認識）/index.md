@@ -140,11 +140,6 @@ def load_labels(filename):
 if __name__ == '__main__':
     # コマンドライン引数(argparse)の処理
     parser = argparse.ArgumentParser()
-    parser.add_argument("-i", "--image", default="images/grace_hopper.bmp", \
-        help="image to be classified")
-    parser.add_argument("-m", "--model_file", \
-        default="models/mobilenet_ssd_v2_coco_quant_postprocess.tflite", \
-    help=".tflite model to be executed")
     
     parser.add_argument("-l", "--label_file", default="models/coco_labels.txt", \
     
@@ -158,7 +153,9 @@ if __name__ == '__main__':
 
 
     # モデルファイル読み込み
-    interpreter = Interpreter(model_path=args.model_file, num_threads=args.num_threads)
+    interpreter = Interpreter(
+      model_path="models/mobilenet_ssd_v2_coco_quant_postprocess.tflite",
+    )
     
     # メモリ確保
     interpreter.allocate_tensors()
@@ -172,7 +169,7 @@ if __name__ == '__main__':
     width = input_details[0]['shape'][2]
     
     # 画像ファイルの読み込み
-    img = Image.open(args.image)
+    img = Image.open("images/grace_hopper.bmp")
     img = img.resize((width, height))
     
     # 入力画像の変換
