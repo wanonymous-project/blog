@@ -125,7 +125,6 @@ python3 label_image.py \
 [detect_lite.py]
 
 ```python
-import argparse
 import numpy as np
 from PIL import Image                                 # pip3 install Pillow
 from tflite_runtime.interpreter import Interpreter
