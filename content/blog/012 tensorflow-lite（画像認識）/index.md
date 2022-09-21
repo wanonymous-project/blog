@@ -111,8 +111,8 @@ python3 label_image.py \
 # 認識
 出来る限りの最小限コード<br/>
 <br/>
+ディレクトリ構成<br/>
 <hr>
-ディレクトリ構成
 ├ images<br/>
 │ ├ grace_hopper.bmp                                 テスト画像。なんでも良い<br/>
 ├ models<br/>
