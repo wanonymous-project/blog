@@ -138,20 +138,6 @@ def load_labels(filename):
     return my_labels
 
 if __name__ == '__main__':
-    # コマンドライン引数(argparse)の処理
-    parser = argparse.ArgumentParser()
-    
-    parser.add_argument("-l", "--label_file", default="models/coco_labels.txt", \
-    
-    help="name of file containing labels")
-    parser.add_argument("--input_mean", default=127.5, help="input_mean")
-    parser.add_argument("--input_std", default=127.5, \
-        help="input standard deviation")
-    parser.add_argument("--num_threads", default=1, help="number of threads")  
-
-    args = parser.parse_args()
-
-
     # モデルファイル読み込み
     interpreter = Interpreter(
       model_path="models/mobilenet_ssd_v2_coco_quant_postprocess.tflite",
