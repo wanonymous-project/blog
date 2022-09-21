@@ -130,13 +130,6 @@ import numpy as np
 from PIL import Image                                 # pip3 install Pillow
 from tflite_runtime.interpreter import Interpreter
 
-def load_labels(filename):
-    my_labels = []
-    input_file = open(filename, 'r')
-    for l in input_file:
-        my_labels.append(l.strip())
-    return my_labels
-
 if __name__ == '__main__':
     # モデルファイル読み込み
     interpreter = Interpreter(
@@ -158,18 +151,24 @@ if __name__ == '__main__':
     img = Image.open("images/grace_hopper.bmp")
     img = img.resize((width, height))
     
-    # 入力画像の変換
+    # 入力画像の変換（行列≒配列の次元を増やす）
     input_data = np.expand_dims(img, axis=0)
 
     # 推論実行
     interpreter.invoke()
 
     # 推論結果
-    output_data = interpreter.get_tensor(output_details[0]['index'])  # 結果を全て
     boxes = interpreter.get_tensor(output_details[0]['index'])[0]     # 検出のバウンディングボックス
     classes = interpreter.get_tensor(output_details[1]['index'])[0]   # 分類されたラベル情報
     scores = interpreter.get_tensor(output_details[2]['index'])[0]		# 一致率
 ```
+<br/>
+推論結果の見方：<br/>
+・バウンディングボックスは要素数4の配列（行列）で示される。x,y, width, height？［調査中］<br/>
+・物体の種類（クラス）は数値で格納。≒ラベルファイルの行数、と考えても間違いでは無い。<br/>
+・一致率は 0 < n < 1 の小数値で格納され、パーセンテージを示す。<br/>
+<br/>
+
 
 # USBカメラを使った認識
 （編集中）<br>
