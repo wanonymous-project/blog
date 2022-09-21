@@ -109,7 +109,7 @@ python3 label_image.py \
 > label_image.py 内のdefault 値を変更しても良い
 
 # 認識
-出来る限りの最小限コード<br/>
+物体検出の基礎部分の理解の為、出来る限りの最小限コードにした<br/>
 <br/>
 ディレクトリ構成<br/>
 <hr>
