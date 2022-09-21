@@ -156,7 +156,7 @@ if __name__ == '__main__':
     # 推論実行
     interpreter.invoke()
 
-    # 推論結果
+    # 推論結果を格納する list
     boxes = interpreter.get_tensor(output_details[0]['index'])[0]     # 検出のバウンディングボックス
     classes = interpreter.get_tensor(output_details[1]['index'])[0]   # 分類されたラベル情報
     scores = interpreter.get_tensor(output_details[2]['index'])[0]		# 一致率
@@ -164,11 +164,11 @@ if __name__ == '__main__':
 <br/>
 
 > 推論結果の見方：<br/>
-> ・検出数n の時、要素数n のlist（行列）を返す。<br/>
-> ・バウンディングボックスは大きさ(len)=4 の list を更に list 化したネスト構造。<br/>
-[x,y, width, height] で合ってる？？［調査中］<br/>
-> ・物体の種類（クラス）は数値で格納。≒ラベルファイルの行数、と考えても間違いでは無い。<br/>
-> ・一致率は 0 < n < 1 の小数値で格納され、パーセンテージを示す。<br/>
+> ・それぞれの list の大きさ(len) は、推論実行の結果検出した物体の数を示す。<br/>
+> ・boxes 内には座標情報を格納した list が格納されている。（list の list になっている） <br/>
+構造は [x,y, width, height] で合ってる？？［調査中］<br/>
+> ・classes （物体の種類）の数値 ≒ ラベルファイルの行番号。<br/>
+> ・scores は 0 < n < 1 の小数値で格納され、パーセンテージを示す。<br/>
 <br/>
 
 
