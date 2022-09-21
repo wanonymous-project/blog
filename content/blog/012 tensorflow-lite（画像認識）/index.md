@@ -144,11 +144,9 @@ if __name__ == '__main__':
     parser.add_argument("-i", "--image", default="images/grace_hopper.bmp", \
         help="image to be classified")
     parser.add_argument("-m", "--model_file", \
-        #default="models/mobilenet_v1_1.0_224_quant.tflite", \
         default="models/mobilenet_ssd_v2_coco_quant_postprocess.tflite", \
     help=".tflite model to be executed")
     
-    #parser.add_argument("-l", "--label_file", default="models/mobilenet_labels.txt", \
     parser.add_argument("-l", "--label_file", default="models/coco_labels.txt", \
     
     help="name of file containing labels")
