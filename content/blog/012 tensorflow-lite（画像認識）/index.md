@@ -111,11 +111,19 @@ python3 label_image.py \
 # 認識
 出来る限りの最小限コード<br/>
 <br/>
+---
 ディレクトリ構成
-|!
-├
-|:-:|
+├ images
+│ ├ grace_hopper.bmp                                 テスト画像。なんでも良い
+├ models
+│ ├ coco_labels.txt
+│ ├ mobilenet_ssd_v2_coco_quant_postprocess.tflite  
+├ venv
+├ detect_lite.py
+---
 
+<br>
+[detect_lite.py]
 
 ```python
 import argparse
