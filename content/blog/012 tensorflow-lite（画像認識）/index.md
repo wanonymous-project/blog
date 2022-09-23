@@ -55,6 +55,17 @@ python -c 'import tensorflow as tf;print(tf.__version__)'
 # 物体検出（Object detection）
 物体検出の基礎部分の理解の為、出来る範囲で最小限コードにした。<br/>
 
+## 準備
+以下のコマンドでダウンロード可能<br/>
+```bash
+mkdir -p all_models
+wget https://dl.google.com/coral/canned_models/all_models.tar.gz
+tar -C all_models -xvzf all_models.tar.gz
+rm -f all_models.tar.gz
+```
+参考：https://github.com/google-coral/examples-camera/blob/master/download_models.sh
+
+
 ## ディレクトリ構成
 <hr>
 ├ images \<br/>
@@ -108,6 +119,7 @@ if __name__ == '__main__':
     classes = interpreter.get_tensor(output_details[1]['index'])[0]   # 分類されたラベル情報
     scores = interpreter.get_tensor(output_details[2]['index'])[0]		# 一致率
 ```
+
 ## 参考資料
 https://github.com/rianrajagede/object-detection/blob/master/scripts/TFLite_detection_image.py<br/>
 <br/>
@@ -122,15 +134,7 @@ https://github.com/rianrajagede/object-detection/blob/master/scripts/TFLite_dete
 
 ## 動作確認できたモデル
 ・ Mobilenet SSD version2<br/>
-以下のコマンドでダウンロード可能<br/>
-```bash
-mkdir -p all_models
-wget https://dl.google.com/coral/canned_models/all_models.tar.gz
-tar -C all_models -xvzf all_models.tar.gz
-rm -f all_models.tar.gz
-```
-ファイル名：mobilenet_ssd_v2_coco_quant_postprocess.tflite<br/>
-
+（上記の方法でダウンロードできる）
 <br/>
 ・EfficientDet-Lite4<br/>
 DL：https://tfhub.dev/tensorflow/lite-model/efficientdet/lite4/detection/default/2<br/>
@@ -142,16 +146,8 @@ USBカメラは OpenCV の VideoCaptureメソッドを使うのが楽。<br>
 ## 準備
 
 ```bash
-# 以下は必要パッケージらしい。先にインストールしておく
-
-# pythonで使う場合
-sudo apt install libhdf5-dev libatlas-base-dev libjasper-dev
-sudo apt install libqt4-test
-
-python3 -m pip install --upgrade pip		# -m pip install -U pip でも良い
-python3 -m pip install numpy --upgrade 	# 最初から入っている事が多いが，upgradeが必要らしい
-python3 -m pip install opencv-python==4.1.0.25	# 一部情報ではver4.1.0.25しか動かないとか？
-# > 4.1.0.25 は2022年9月現在、無くなったらしい
+sudo apt install libatlas3-base
+pip3 install opencv-python==4.5.1.48
 ```
 
 ## ソース
