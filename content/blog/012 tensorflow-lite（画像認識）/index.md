@@ -137,7 +137,16 @@ DL：https://tfhub.dev/tensorflow/lite-model/efficientdet/lite4/detection/defaul
 <br/>
 
 # USBカメラを使った認識
+USBカメラは OpenCV の VideoCaptureメソッドを使うのが楽。<br>
+
+## 準備
+```bash
+sudo apt install python-opencv
+```
+## 参考資料
+https://github.com/google-coral/examples-camera/tree/master/opencv<br>
 （編集中）<br>
+
 
 # モデルファイルを自作する
 （編集中）<br>
