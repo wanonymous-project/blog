@@ -133,7 +133,7 @@ rm -f all_models.tar.gz
 
 <br/>
 ・EfficientDet-Lite4<br/>
-DL：[(https://tfhub.dev/tensorflow/lite-model/efficientdet/lite4/detection/default/2)](https://tfhub.dev/tensorflow/lite-model/efficientdet/lite4/detection/default/2)<br/>
+DL：[ https://tfhub.dev/tensorflow/lite-model/efficientdet/lite4/detection/default/2 ](https://tfhub.dev/tensorflow/lite-model/efficientdet/lite4/detection/default/2)<br/>
 <br/>
 
 # USBカメラを使った認識
