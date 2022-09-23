@@ -54,8 +54,8 @@ python -c 'import tensorflow as tf;print(tf.__version__)'
 
 # 認識
 物体検出の基礎部分の理解の為、出来る範囲で最小限コードにした。<br/>
-<br/>
-ディレクトリ構成<br/>
+
+## ディレクトリ構成
 <hr>
 ├ images \<br/>
 │ ├ grace_hopper.bmp    (テスト画像。なんでも良い)<br/>
@@ -65,7 +65,7 @@ python -c 'import tensorflow as tf;print(tf.__version__)'
 ├ detect_lite.py<br/>
 <hr>
 
-<br>
+## ソースコード
 [detect_lite.py]
 
 ```python
@@ -108,11 +108,11 @@ if __name__ == '__main__':
     classes = interpreter.get_tensor(output_details[1]['index'])[0]   # 分類されたラベル情報
     scores = interpreter.get_tensor(output_details[2]['index'])[0]		# 一致率
 ```
-<br/>
-参考資料<br/>
+## 参考資料
 https://github.com/rianrajagede/object-detection/blob/master/scripts/TFLite_detection_image.py<br/>
 <br/>
-### 推論結果の見方
+
+## 推論結果の見方
 > ・それぞれの list の大きさ(len) は、推論実行の結果検出した物体の数を示す。<br/>
 > ・boxes 内には座標情報を格納した list が格納されている。（list の list になっている） <br/>
 > 構造は [x,y, width, height] で合ってる？？［調査中］<br/>
@@ -120,7 +120,7 @@ https://github.com/rianrajagede/object-detection/blob/master/scripts/TFLite_dete
 > ・scores は 0 < n < 1 の小数値で格納され、パーセンテージを示す。<br/>
 <br/>
 
-### 動作確認できたモデル
+## 動作確認できたモデル
 ・ Mobilenet SSD version2<br/>
 以下のコマンドでダウンロード可能<br/>
 ファイル名：mobilenet_ssd_v2_coco_quant_postprocess.tflite<br/>
