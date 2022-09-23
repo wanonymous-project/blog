@@ -18,6 +18,16 @@ https://github.com/PINTO0309/TensorflowLite-bin
 PINT0309の#USAGE<br>
 https://github.com/PINTO0309/TensorflowLite-bin#usage<br>
 ・apt パッケージのインストール。最初の$が不要なだけでそのままコピペ。<br>
+```bash
+# $ を省いたスクリプトをここにも記述。
+sudo apt install -y \
+swig libjpeg-dev zlib1g-dev python3-dev \
+unzip wget python3-pip curl git cmake make
+
+sudo pip3 install numpy==1.23.2
+```
+
+<br>
 ・TFVER=2.10.0-rc1　以降はbash変数の設定<br>
 こんな感じ<br>
 ```bash
@@ -33,8 +43,10 @@ ARCH=aarch64
 | ARCH | OSのアーキテクチャー。 |
 
 ```bash
-python3 -V							                    # PYVERの確認方法
-python -c 'import platform; print(platform.machine())'	# ARCHの確認方法
+# PYVERの確認方法
+python3 -V
+# ARCHの確認方法
+python -c 'import platform; print(platform.machine())'
 ```
 
 ## インストール
@@ -144,10 +156,22 @@ DL：https://tfhub.dev/tensorflow/lite-model/efficientdet/lite4/detection/defaul
 USBカメラは OpenCV の VideoCaptureメソッドを使うのが楽。<br>
 
 ## 準備
+通常のpip を使った方法ではうまく行かなかった。
+下のインストールスクリプトを使用する。<br>
+ビルドする為、30~60分程度覚悟する。<br>
+https://qengineering.eu/install-opencv-4.5-on-raspberry-64-os.html
+
+メモ（pipで試した結果）<br>
+ver== 4.3.0.38  ビルドする→失敗<br>
+ver== 4.4.0.44  ビルド→中止<br>
+ver== 4.4.0.46  ビルド→中止<br>
+ver== 4.5.1.48  起動時エラー<br>
+ver== 4.6.0.66  起動時エラー<br>
 
 ```bash
 sudo apt install libatlas3-base
-pip3 install opencv-python==4.5.1.48
+python3 -m pip install opencv-contrib-python==4.5.1.48
+python3 -m pip install opencv-python==4.5.1.48
 ```
 
 ## ソース
@@ -248,3 +272,5 @@ python3 label_image.py \
 > label_image.py のargparse.ArgumentParser() のdefault の値はそれぞれ変。
 > 今回は label_image.py 実行時のコマンドライン引数で調整したが、
 > label_image.py 内のdefault 値を変更しても良い
+
+
