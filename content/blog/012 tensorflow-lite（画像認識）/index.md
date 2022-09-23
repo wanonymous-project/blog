@@ -140,6 +140,7 @@ DL：https://tfhub.dev/tensorflow/lite-model/efficientdet/lite4/detection/defaul
 USBカメラは OpenCV の VideoCaptureメソッドを使うのが楽。<br>
 
 ## 準備
+
 ```bash
 # 以下は必要パッケージらしい。先にインストールしておく
 
@@ -150,8 +151,41 @@ sudo apt install libqt4-test
 python3 -m pip install --upgrade pip		# -m pip install -U pip でも良い
 python3 -m pip install numpy --upgrade 	# 最初から入っている事が多いが，upgradeが必要らしい
 python3 -m pip install opencv-python==4.1.0.25	# 一部情報ではver4.1.0.25しか動かないとか？
-
+# > 4.1.0.25 は2022年9月現在、無くなったらしい
 ```
+
+## ソース
+
+```python
+import cv2
+from tflite_runtime.interpreter import Interpreter
+
+
+def load_labels(filename):
+    my_labels = []
+    input_file = open(filename, 'r')
+    for l in input_file:
+        my_labels.append(l.strip())
+    return my_labels
+
+
+if __name__ == '__main__':
+    cap = cv2.VideoCapture(0)
+
+    while cap.isOpened():
+        ret, frame = cap.read()
+        if not ret:
+            break
+        
+        cv2.imshow('camera capture', frame)			# キャプチャした画像を確認する
+
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    cap.release()
+    cv2.destroyAllWindows()
+```
+
 ## 参考資料
 https://github.com/google-coral/examples-camera/tree/master/opencv<br>
 
