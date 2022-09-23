@@ -52,7 +52,7 @@ https://github.com/PINTO0309/TensorflowLite-bin/releases/download/v${TFVER}/tfli
 python -c 'import tensorflow as tf;print(tf.__version__)'
 ```
 
-# 認識
+# 物体検出（Object detection）
 物体検出の基礎部分の理解の為、出来る範囲で最小限コードにした。<br/>
 
 ## ディレクトリ構成
@@ -136,12 +136,12 @@ rm -f all_models.tar.gz
 DL：https://tfhub.dev/tensorflow/lite-model/efficientdet/lite4/detection/default/2<br/>
 <br/>
 
-# USBカメラを使った認識（編集中）
+# USBカメラを使ったリアルタイム物体検出（編集中）
 USBカメラは OpenCV の VideoCaptureメソッドを使うのが楽。<br>
 
 ## 準備
 ```bash
-sudo apt install python-opencv
+sudo apt install python3-opencv
 ```
 ## 参考資料
 https://github.com/google-coral/examples-camera/tree/master/opencv<br>
@@ -155,7 +155,7 @@ https://github.com/google-coral/examples-camera/tree/master/opencv<br>
 
 
 # 補足資料
-## label_image.py でテスト（任意）
+## クラス分類（Classification）
 ### 必要ファイルをダウンロード
 次は PINT0309の #operation-check-classification を参考にテストを行う。<br>
 まずは必要ファイルのダウンロード。<br>
