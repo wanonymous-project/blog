@@ -154,9 +154,8 @@ https://github.com/google-coral/examples-camera/tree/master/opencv<br>
 ・モデルファイル作成には強力なGPU が必要。Google Colaboratory を使うのが無難（無料）<br>
 
 
-# 補足資料
-## クラス分類（Classification）
-### 必要ファイルをダウンロード
+# クラス分類（Classification）
+## 必要ファイルをダウンロード
 次は PINT0309の #operation-check-classification を参考にテストを行う。<br>
 まずは必要ファイルのダウンロード。<br>
 https://github.com/PINTO0309/TensorflowLite-bin#operation-check-classification のEnvironmental preparation<br>
@@ -176,7 +175,7 @@ curl http://download.tensorflow.org/models/mobilenet_v1_2018_02_22/mobilenet_v1_
 ```
 <br>
 
-### label_image.py のダウンロード
+## label_image.py のダウンロード
 label_image.py というスクリプトを ~/tflite-bin/ 直下にコピペ<br>
 https://github.com/PINTO0309/TensorflowLite-bin#operation-check-classification のlabel_image.py<br>
 もしくは<br>
@@ -207,7 +206,7 @@ python3 label_image.py \
 # 認識はしてるようだが、このスクリプトでは座標位置などの情報は取れない為、あまり意味が無い。
 ```
 
-> 補足
+## 補足
 > label_image.py のargparse.ArgumentParser() のdefault の値はそれぞれ変。
 > 今回は label_image.py 実行時のコマンドライン引数で調整したが、
 > label_image.py 内のdefault 値を変更しても良い
