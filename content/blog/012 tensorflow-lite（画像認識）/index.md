@@ -123,14 +123,14 @@ https://github.com/rianrajagede/object-detection/blob/master/scripts/TFLite_dete
 ## 動作確認できたモデル
 ・ Mobilenet SSD version2<br/>
 以下のコマンドでダウンロード可能<br/>
-ファイル名：mobilenet_ssd_v2_coco_quant_postprocess.tflite<br/>
-<br/>
 ```bash
 mkdir -p all_models
 wget https://dl.google.com/coral/canned_models/all_models.tar.gz
 tar -C all_models -xvzf all_models.tar.gz
 rm -f all_models.tar.gz
 ```
+ファイル名：mobilenet_ssd_v2_coco_quant_postprocess.tflite<br/>
+
 <br/>
 ・EfficientDet-Lite4<br/>
 DL：https://tfhub.dev/tensorflow/lite-model/efficientdet/lite4/detection/default/2<br/>
