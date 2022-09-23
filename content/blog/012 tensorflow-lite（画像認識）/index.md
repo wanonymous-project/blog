@@ -141,7 +141,16 @@ USBカメラは OpenCV の VideoCaptureメソッドを使うのが楽。<br>
 
 ## 準備
 ```bash
-sudo apt install python3-opencv
+# 以下は必要パッケージらしい。先にインストールしておく
+
+# pythonで使う場合
+sudo apt install libhdf5-dev libatlas-base-dev libjasper-dev
+sudo apt install libqt4-test
+
+python3 -m pip install --upgrade pip		# -m pip install -U pip でも良い
+python3 -m pip install numpy --upgrade 	# 最初から入っている事が多いが，upgradeが必要らしい
+python3 -m pip install opencv-python==4.1.0.25	# 一部情報ではver4.1.0.25しか動かないとか？
+
 ```
 ## 参考資料
 https://github.com/google-coral/examples-camera/tree/master/opencv<br>
