@@ -136,7 +136,7 @@ rm -f all_models.tar.gz
 DL：https://tfhub.dev/tensorflow/lite-model/efficientdet/lite4/detection/default/2<br/>
 <br/>
 
-# USBカメラを使った認識
+# USBカメラを使った認識（編集中）
 USBカメラは OpenCV の VideoCaptureメソッドを使うのが楽。<br>
 
 ## 準備
@@ -145,11 +145,9 @@ sudo apt install python-opencv
 ```
 ## 参考資料
 https://github.com/google-coral/examples-camera/tree/master/opencv<br>
-（編集中）<br>
 
 
-# モデルファイルを自作する
-（編集中）<br>
+# モデルファイルを自作する（編集中）
 まだよく分かっていない。都度編集の予定。<br>
 ・Google がチュートリアルを出しているので参考にする。<br>
 例：https://www.tensorflow.org/lite/guide/model_maker?hl=ja<br>
