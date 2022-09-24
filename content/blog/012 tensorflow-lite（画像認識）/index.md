@@ -173,7 +173,7 @@ DL：https://tfhub.dev/tensorflow/lite-model/efficientdet/lite4/detection/defaul
 USBカメラは OpenCV の VideoCaptureメソッドを使うのが楽。<br>
 
 ## 準備
-
+[bash]
 ```bash
 # OpenCV をインストール
 sudo pip3 opencv-python	
