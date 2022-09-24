@@ -29,7 +29,7 @@ swig libjpeg-dev zlib1g-dev python3-dev \
 unzip wget python3-pip curl git cmake make
 
 sudo pip3 install numpy==1.23.2
-sudo pip3 install Pillow
+sudo pip3 install Pillow                # これも合った方が良いので追加
 ```
 
 <br>
