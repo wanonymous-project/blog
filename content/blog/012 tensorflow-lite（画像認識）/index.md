@@ -190,6 +190,7 @@ v4l2-ctl --list-devices
 
 ## ソース
 ディレクトリ構成は「物体検出」と同じ
+[detect_cv.py]
 ```python
 import cv2
 import numpy as np
