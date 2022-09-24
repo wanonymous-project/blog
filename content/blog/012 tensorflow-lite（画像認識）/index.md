@@ -70,11 +70,10 @@ https://github.com/PINTO0309/TensorflowLite-bin/releases/download/v${TFVER}/tfli
 python -c 'import tensorflow as tf;print(tf.__version__)'
 ```
 
-# 物体検出（Object detection）
-物体検出の基礎部分の理解の為、出来る範囲で最小限コードにした。<br/>
 
 ## 準備
-以下のコマンドでダウンロード可能<br/>
+必要なファイルをダウンロード<br/>
+まとめてダウンロードできるので、以下のスクリプトがおすすめ。<br/>
 ```bash
 mkdir -p all_models
 wget https://dl.google.com/coral/canned_models/all_models.tar.gz
@@ -82,6 +81,12 @@ tar -C models -xvzf all_models.tar.gz
 rm -f all_models.tar.gz
 ```
 参考：https://github.com/google-coral/examples-camera/blob/master/download_models.sh
+
+［追記］ラベルファイルは以下から取った方が良い。上記のは色々とおかしかった。
+https://github.com/amikelive/coco-labels/blob/master/coco-labels-2014_2017.txt
+
+# 物体検出（Object detection）
+物体検出の基礎部分の理解の為、出来る範囲で最小限コードにした。<br/>
 
 
 ## ディレクトリ構成
@@ -131,7 +136,7 @@ if __name__ == '__main__':
 
     # 推論実行
     interpreter.invoke()
-
+	
     # 推論結果
     boxes = interpreter.get_tensor(output_details[0]['index'])[0]       # 検出のバウンディングボックス
     classes = interpreter.get_tensor(output_details[1]['index'])[0]     # 分類されたラベル情報
@@ -150,7 +155,7 @@ https://github.com/rianrajagede/object-detection/blob/master/scripts/TFLite_dete
 ## 推論結果の見方
 > ・それぞれの list の大きさ(len) は、推論実行の結果検出した物体の数を示す。<br/>
 > ・boxes 内には座標情報を格納した list が格納されている。（list の list になっている） <br/>
-> 構造は [x,y, width, height] で合ってる？？［調査中］<br/>
+> 構造は [y_min, x_min, y_max, x_max] らしい。<br/>
 > ・classes （物体の種類）の数値 ≒ ラベルファイルの行番号。<br/>
 > ・scores は 0 < n < 1 の小数値で格納され、パーセンテージを示す。<br/>
 <br/>
@@ -164,57 +169,133 @@ DL：https://tfhub.dev/tensorflow/lite-model/efficientdet/lite4/detection/defaul
 <br/>
 <br/>
 
-# USBカメラを使ったリアルタイム物体検出（編集中）
+# USBカメラを使った物体検出
 USBカメラは OpenCV の VideoCaptureメソッドを使うのが楽。<br>
 
 ## 準備
 
 ```bash
-#sudo apt install libhdf5-dev libhdf5-serial-dev
-#sudo apt install libqtgui4 libqtwebkit4 libqt4-test python3-pyqt5
-#sudo apt install libatlas3-base libatlas-base-dev libjasper-dev
+# OpenCV をインストール
+sudo pip3 opencv-python	
 
-python3 -m pip install numpy --upgrade            # コンパイルされるので時間がかかる
-sudo pip3 install opencv-contrib-python==4.5.1.48 # 何故か管理者権限が必要
-python3 -m pip install opencv-python==4.5.1.48    # 本命 opencv のインストール
+# ビデオデバイスの番号を確認
+v4l2-ctl --list-devices
+# > 例
+# > C505 HD Webcam (usb-0000:01:00.0-1.3):
+# > 	/dev/video0
+# video{n} の n のところの数値を覚えておく。
 ```
 
-v4l2-ctl --list-devices   ビデオデバイスの確認方法
 
 
 ## ソース
-
+ディレクトリ構成は「物体検出」と同じ
 ```python
 import cv2
+import numpy as np
 from tflite_runtime.interpreter import Interpreter
 
-
 def load_labels(filename):
-    my_labels = []
+    label_list = []
     input_file = open(filename, 'r')
     for l in input_file:
-        my_labels.append(l.strip())
-    return my_labels
+        label_list.append(l.strip())
+    return label_list
 
 
 if __name__ == '__main__':
-    cap = cv2.VideoCapture(0)
+    # ラベルファイル読み込み
+    labels = load_labels('models/coco_labels.txt')
+    
+    # モデルファイル読み込み
+    interpreter = Interpreter(
+        model_path="models/mobilenet_ssd_v2_coco_quant_postprocess.tflite",
+    )
+    
+    # メモリ確保
+    interpreter.allocate_tensors()
+    
+    # 学習モデルの入力層・出力層のプロパティを取得
+    input_details = interpreter.get_input_details()
+    output_details = interpreter.get_output_details()
+    
+    # 入力層の情報から画像サイズを取り出す
+    height = input_details[0]['shape'][1]
+    width = input_details[0]['shape'][2]
+    
+    # カメラの使用を開始
+    cap=cv2.VideoCapture(0)
+	
+	# カメラの設定（任意）
+    cap.set(cv2.CAP_PROP_FPS, 10)           # カメラFPSを設定
 
+    # カメラ画像の幅と高さを取得
+    frame_width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
+    frame_height = cap.get(cv2.CAP_PROP_FRAME_HEIGHT)
+
+    # カメラが有効な限りループ
     while cap.isOpened():
+        # 画像を取得
         ret, frame = cap.read()
+
         if not ret:
             break
         
-        cv2.imshow('camera capture', frame)			# キャプチャした画像を確認する
+        # サイズを変更
+        img = cv2.resize(frame, dsize=(height,width))
 
+        # 入力画像の変換（行列≒配列の次元を増やす）
+        input_data = np.expand_dims(img, axis=0)
+
+        # 入力テンソル（≒配列）の設定
+        interpreter.set_tensor(input_details[0]['index'], input_data)
+
+      	# 推論実行
+        interpreter.invoke()
+
+        # 推論結果
+        boxes = interpreter.get_tensor(output_details[0]['index'])[0]       # 検出のバウンディングボックス
+        classes = interpreter.get_tensor(output_details[1]['index'])[0]     # 分類されたラベル情報
+        scores = interpreter.get_tensor(output_details[2]['index'])[0]      # 一致率
+
+        # バウンディングボックスの処理
+        index = 0
+        for score in scores[scores >= 0.2]:      # 結果をスコアで抽出(numpy 独自の抽出法)
+            # 座標位置
+            x_min = int(boxes[index][1] * frame_width)
+            y_min = int(boxes[index][0] * frame_height)
+            x_max = int(boxes[index][3] * frame_width)
+            y_max = int(boxes[index][2] * frame_height)
+
+            # クラスのラベル番号
+            label_num = int(classes[index])
+
+            # 90クラスあるモデルファイルがあるらしい。例外になるので弾く。
+            if label_num >= 80: continue
+
+            # バウンディングボックスの描写
+            cv2.rectangle(frame, \
+                (x_min, y_min), (x_max, y_max), (0, 0, 255), 3)
+
+            # クラスの文字列を描写
+            cv2.putText(frame, ('%s (%f)' % (labels[label_num], score)), (x_min + 50, y_max - 50), \
+                cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 1, cv2.LINE_AA)
+
+
+        # 画像を確認する
+        cv2.imshow('camera capture', frame)
+
+        # q が押されたら終了
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
+
+    # OpenCV オブジェクトの破棄
     cap.release()
     cv2.destroyAllWindows()
 ```
 
-## ssh でログインする場合
+## ssh でラズパイにログインする場合
 標準では ssh でのGUIは無効なため、カメラ画像を確認する cv2.imshow() メソッドが使えない。<br\>
 以下の方法の内いずれかを選択する。<br\>
 <br\>
@@ -231,8 +312,7 @@ ForwardX11 yes
 ```
 
 補足：(2022-09-24)
-VSCode は標準ではX11 Forwarding を実行できない。
-方法は色々あるらしい。[ VSCodeでSSH X11 Forwarding ]で検索。
+方法は色々あるらしい。[ SSH X11 Forwarding ]で検索すると色々出てくる。
 
 
 
@@ -301,11 +381,18 @@ python3 label_image.py \
 
 
 # 資料
+## 公式 object detection
+https://github.com/tensorflow/models/tree/master/research/object_detection
+
+## 有志の人がカスタマイズしなおした object detection
+https://github.com/karaage0703/object_detection_tools
+
 ## coral のサンプル
 https://github.com/google-coral/examples-camera/tree/master/opencv<br>
 
-## OpenCVのバージョン
+## OpenCVのバージョンについて
 ver== 4.3.0.38, 4.4.0.44, 4.4.0.46 ラズパイ上でのビルドが必要<br>
 ver== 4.5.1.48, 4.6.0.66 コンパイル済.whでインストール可能<br>
 
-
+## colab チュートリアル
+https://colab.research.google.com/drive/1bb2QfeMEWomL-UA_Y68QqbNA0GnXVQoV?usp=sharing
