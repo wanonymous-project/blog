@@ -330,6 +330,7 @@ if __name__ == '__main__':
     cv2.destroyAllWindows()
 ```
 
+
 ## ssh でラズパイにログインする場合
 標準では ssh でのGUIは無効なため、カメラ画像を確認する cv2.imshow() メソッドが使えない。<br>
 以下の方法の内いずれかを選択する。<br>
@@ -351,16 +352,10 @@ ForwardX11 yes
 
 
 
-# モデルファイルを自作する（編集中）
-まだよく分かっていない。都度編集の予定。<br>
-・Google がチュートリアルを出しているので参考にする。<br>
-例：https://www.tensorflow.org/lite/guide/model_maker?hl=ja<br>
-・モデルファイル作成には強力なGPU が必要。Google Colaboratory を使うのが無難（無料）<br>
-
 
 # クラス分類（Classification）
 ## 必要ファイルをダウンロード
-次は PINT0309の #operation-check-classification を参考にテストを行う。<br>
+次は PINT0309の #operation-check-classification を参考に。<br>
 まずは必要ファイルのダウンロード。<br>
 https://github.com/PINTO0309/TensorflowLite-bin#operation-check-classification のEnvironmental preparation<br>
 <br>
@@ -413,6 +408,14 @@ python3 label_image.py \
 > label_image.py のargparse.ArgumentParser() のdefault の値はそれぞれ変。
 > 今回は label_image.py 実行時のコマンドライン引数で調整したが、
 > label_image.py 内のdefault 値を変更しても良い
+
+
+# モデルファイルを自作する（編集中）
+まだよく分かっていない。都度編集の予定。<br>
+・Google がチュートリアルを出しているので参考にする。<br>
+例：https://www.tensorflow.org/lite/guide/model_maker?hl=ja<br>
+・モデルファイル作成には強力なGPU が必要。Google Colaboratory を使うのが無難（無料）<br>
+
 
 
 # 資料
