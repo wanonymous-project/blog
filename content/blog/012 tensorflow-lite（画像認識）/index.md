@@ -29,6 +29,7 @@ swig libjpeg-dev zlib1g-dev python3-dev \
 unzip wget python3-pip curl git cmake make
 
 sudo pip3 install numpy==1.23.2
+sudo pip3 install Pillow
 ```
 
 <br>
@@ -36,7 +37,7 @@ sudo pip3 install numpy==1.23.2
 こんな感じ<br>
 
 ```bash
-TFVER=2.9.0
+TFVER=2.10.0		# 確認済ver:2.9.0
 PYVER=39
 ARCH=aarch64
 ```
@@ -77,7 +78,7 @@ python -c 'import tensorflow as tf;print(tf.__version__)'
 ```bash
 mkdir -p all_models
 wget https://dl.google.com/coral/canned_models/all_models.tar.gz
-tar -C all_models -xvzf all_models.tar.gz
+tar -C models -xvzf all_models.tar.gz
 rm -f all_models.tar.gz
 ```
 参考：https://github.com/google-coral/examples-camera/blob/master/download_models.sh
@@ -132,9 +133,14 @@ if __name__ == '__main__':
     interpreter.invoke()
 
     # 推論結果
-    boxes = interpreter.get_tensor(output_details[0]['index'])[0]     # 検出のバウンディングボックス
-    classes = interpreter.get_tensor(output_details[1]['index'])[0]   # 分類されたラベル情報
-    scores = interpreter.get_tensor(output_details[2]['index'])[0]		# 一致率
+    boxes = interpreter.get_tensor(output_details[0]['index'])[0]       # 検出のバウンディングボックス
+    classes = interpreter.get_tensor(output_details[1]['index'])[0]     # 分類されたラベル情報
+    scores = interpreter.get_tensor(output_details[2]['index'])[0]      # 一致率
+
+    # 結果を表示する
+    print('boxes:\n%s' % boxes)
+    print('classes:\n%s' % classes)
+    print('scores:\n%s' % scores)
 ```
 
 ## 参考資料
