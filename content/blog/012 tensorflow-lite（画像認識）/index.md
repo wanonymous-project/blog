@@ -156,36 +156,19 @@ DL：https://tfhub.dev/tensorflow/lite-model/efficientdet/lite4/detection/defaul
 USBカメラは OpenCV の VideoCaptureメソッドを使うのが楽。<br>
 
 ## 準備
-通常のpip を使った方法ではうまく行かなかった。
-下のインストールスクリプトを使用する。<br>
-ビルドする為、30~60分程度覚悟する。<br>
-結果：→ 途中で落ちて失敗
-https://qengineering.eu/install-opencv-4.5-on-raspberry-64-os.html
 
 ```bash
-sudo apt install libhdf5-dev libhdf5-serial-dev
-sudo apt install libqtgui4 libqtwebkit4 libqt4-test python3-pyqt5
-sudo apt install libatlas-base-dev
-sudo apt install libjasper-dev
+#sudo apt install libhdf5-dev libhdf5-serial-dev
+#sudo apt install libqtgui4 libqtwebkit4 libqt4-test python3-pyqt5
+#sudo apt install libatlas3-base libatlas-base-dev libjasper-dev
 
-python3 -m pip install opencv-contrib-python==4.5.1.48
-python3 -m pip install opencv-python==4.5.1.48
+python3 -m pip install numpy --upgrade            # コンパイルされるので時間がかかる
+sudo pip3 install opencv-contrib-python==4.5.1.48 # 何故か管理者権限が必要
+python3 -m pip install opencv-python==4.5.1.48    # 本命 opencv のインストール
 ```
-
-メモ（pipで試した結果）<br>
-ver== 4.3.0.38  ビルドする→失敗<br>
-ver== 4.4.0.44  ビルド→中止<br>
-ver== 4.4.0.46  ビルド→中止<br>
-ver== 4.5.1.48  起動時エラー<br>
-ver== 4.6.0.66  起動時エラー<br>
 
 v4l2-ctl --list-devices   ビデオデバイスの確認方法
 
-```bash
-sudo apt install libatlas3-base
-python3 -m pip install opencv-contrib-python==4.5.1.48
-python3 -m pip install opencv-python==4.5.1.48
-```
 
 ## ソース
 
@@ -219,8 +202,35 @@ if __name__ == '__main__':
     cv2.destroyAllWindows()
 ```
 
-## 参考資料
-https://github.com/google-coral/examples-camera/tree/master/opencv<br>
+## ssh でログインする場合
+標準では ssh でのGUIは無効なため、カメラ画像を確認する cv2.imshow() メソッドが使えない。<br\>
+以下の方法の内いずれかを選択する。<br\>
+<br\>
+bash でssh を実行する場合<br>
+
+```bash
+ssh usi@192.168.11.94 -X          # -X オプションを指定
+```
+
+~/.ssh/config を使う場合
+
+```bash
+ForwardX11 yes
+```
+補足：VSCode ではどうやっても実行できない？？2022-09-24
+
+
+sshd_config
+X11Forwarding yes
+
+・bash で実行時にオプションを指定
+```bash
+ssh usi@192.168.11.94 -X          # -X オプションを指定
+```
+
+
+
+
 
 
 # モデルファイルを自作する（編集中）
@@ -285,5 +295,14 @@ python3 label_image.py \
 > label_image.py のargparse.ArgumentParser() のdefault の値はそれぞれ変。
 > 今回は label_image.py 実行時のコマンドライン引数で調整したが、
 > label_image.py 内のdefault 値を変更しても良い
+
+
+# 資料
+## coral のサンプル
+https://github.com/google-coral/examples-camera/tree/master/opencv<br>
+
+## OpenCVのバージョン
+ver== 4.3.0.38, 4.4.0.44, 4.4.0.46 ラズパイ上でのビルドが必要<br>
+ver== 4.5.1.48, 4.6.0.66 コンパイル済.whでインストール可能<br>
 
 
