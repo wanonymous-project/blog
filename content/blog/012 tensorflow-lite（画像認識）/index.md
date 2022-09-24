@@ -217,7 +217,10 @@ ssh usi@192.168.11.94 -X          # -X オプションを指定
 ```bash
 ForwardX11 yes
 ```
-補足：VSCode ではどうやっても実行できない？？2022-09-24
+
+補足：(2022-09-24)
+VSCode は標準ではX11 Forwarding を実行できない。
+方法は色々あるらしい。[ VSCodeでSSH X11 Forwarding ]で検索。
 
 
 sshd_config
