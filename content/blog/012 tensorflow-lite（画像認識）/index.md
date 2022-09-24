@@ -15,7 +15,7 @@ https://github.com/PINTO0309/TensorflowLite-bin
 
 # 環境
 使用OS：2022-09-06-raspios-bullseye-arm64.img
-
+https://www.raspberrypi.com/software/operating-systems/
 
 # インストール
 ## PINT0309の#USAGE
@@ -37,7 +37,7 @@ sudo pip3 install Pillow                # これも有った方が良いので�
 こんな感じ<br>
 
 ```bash
-TFVER=2.10.0		# 確認済ver:2.9.0
+TFVER=2.10.0		# 動作確認した version:2.9.0, 2.10.0
 PYVER=39
 ARCH=aarch64
 ```
