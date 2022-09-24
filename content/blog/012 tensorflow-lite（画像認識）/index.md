@@ -195,7 +195,36 @@ import cv2
 import numpy as np
 from tflite_runtime.interpreter import Interpreter
 
-def load_labels(filename):
+# クラスごとに色分けをする仕組み（任意）
+colors = [
+  (0, 0, 255),
+  (0, 64, 255),
+  (0, 128, 255),
+  (0, 192, 255),
+  (0, 255, 255),
+  (0, 255, 192),
+  (0, 255, 128),
+  (0, 255, 64),
+  (0, 255, 0),
+  (64, 255, 0),
+  (128, 255, 0),
+  (192, 255, 0),
+  (255, 255, 0),
+  (255, 192, 0),
+  (255, 128, 0),
+  (255, 64, 0),
+  (255, 0, 0),
+  (255, 0, 64),
+  (255, 0, 128),
+  (255, 0, 192),
+  (255, 0, 255),
+  (192, 0, 255),
+  (128, 0, 255),
+  (64, 0, 255),
+]
+
+
+def load_labelfile(filename):
     label_list = []
     input_file = open(filename, 'r')
     for l in input_file:
@@ -205,7 +234,7 @@ def load_labels(filename):
 
 if __name__ == '__main__':
     # ラベルファイル読み込み
-    labels = load_labels('models/coco_labels.txt')
+    labels = load_labelfile('models/coco_labels.txt')
     
     # モデルファイル読み込み
     interpreter = Interpreter(
@@ -227,7 +256,7 @@ if __name__ == '__main__':
     cap=cv2.VideoCapture(0)
 	
 	# カメラの設定（任意）
-    cap.set(cv2.CAP_PROP_FPS, 10)           # カメラFPSを設定
+    #cap.set(cv2.CAP_PROP_FPS, 30)           # カメラFPSを設定
 
     # カメラ画像の幅と高さを取得
     frame_width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
@@ -273,13 +302,19 @@ if __name__ == '__main__':
             # 90クラスあるモデルファイルがあるらしい。例外になるので弾く。
             if label_num >= 80: continue
 
+            # バウンディングボックスの色
+            color = colors[label_num % len(colors)]
+
             # バウンディングボックスの描写
             cv2.rectangle(frame, \
                 (x_min, y_min), (x_max, y_max), (0, 0, 255), 3)
 
             # クラスの文字列を描写
-            cv2.putText(frame, ('%s (%f)' % (labels[label_num], score)), (x_min + 50, y_max - 50), \
+            cv2.putText(frame, ('%s (%.3f)' % (labels[label_num], score)), (x_min + 50, y_max - 50), \
                 cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 1, cv2.LINE_AA)
+
+            # カウントアップ
+            index=+1
 
 
         # 画像を確認する
