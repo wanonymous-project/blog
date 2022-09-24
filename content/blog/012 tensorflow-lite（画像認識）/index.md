@@ -13,6 +13,10 @@ https://github.com/PINTO0309/TensorflowLite-bin
 ・「aarch64 OS」のほうがパフォーマンスが良いらしい<br>
 ・USBカメラの画像を取得するにはOpenCVのVideoCaptureメソッドを使う。<br>
 
+# 環境
+使用OS：2022-09-06-raspios-bullseye-arm64.img
+
+
 # インストール
 ## PINT0309の#USAGE
 PINT0309の#USAGE<br>
@@ -30,6 +34,7 @@ sudo pip3 install numpy==1.23.2
 <br>
 ・TFVER=2.10.0-rc1　以降はbash変数の設定<br>
 こんな感じ<br>
+
 ```bash
 TFVER=2.9.0
 PYVER=39
