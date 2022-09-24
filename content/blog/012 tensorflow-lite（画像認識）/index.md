@@ -159,7 +159,18 @@ USBカメラは OpenCV の VideoCaptureメソッドを使うのが楽。<br>
 通常のpip を使った方法ではうまく行かなかった。
 下のインストールスクリプトを使用する。<br>
 ビルドする為、30~60分程度覚悟する。<br>
+結果：→ 途中で落ちて失敗
 https://qengineering.eu/install-opencv-4.5-on-raspberry-64-os.html
+
+```bash
+sudo apt install libhdf5-dev libhdf5-serial-dev
+sudo apt install libqtgui4 libqtwebkit4 libqt4-test python3-pyqt5
+sudo apt install libatlas-base-dev
+sudo apt install libjasper-dev
+
+python3 -m pip install opencv-contrib-python==4.5.1.48
+python3 -m pip install opencv-python==4.5.1.48
+```
 
 メモ（pipで試した結果）<br>
 ver== 4.3.0.38  ビルドする→失敗<br>
@@ -167,6 +178,8 @@ ver== 4.4.0.44  ビルド→中止<br>
 ver== 4.4.0.46  ビルド→中止<br>
 ver== 4.5.1.48  起動時エラー<br>
 ver== 4.6.0.66  起動時エラー<br>
+
+v4l2-ctl --list-devices   ビデオデバイスの確認方法
 
 ```bash
 sudo apt install libatlas3-base
