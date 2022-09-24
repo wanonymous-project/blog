@@ -229,18 +229,6 @@ VSCode は標準ではX11 Forwarding を実行できない。
 方法は色々あるらしい。[ VSCodeでSSH X11 Forwarding ]で検索。
 
 
-sshd_config
-X11Forwarding yes
-
-・bash で実行時にオプションを指定
-```bash
-ssh usi@192.168.11.94 -X          # -X オプションを指定
-```
-
-
-
-
-
 
 # モデルファイルを自作する（編集中）
 まだよく分かっていない。都度編集の予定。<br>
