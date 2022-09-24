@@ -184,8 +184,8 @@ v4l2-ctl --list-devices
 # > C505 HD Webcam (usb-0000:01:00.0-1.3):
 # > 	/dev/video0
 # video{n} の n のところの数値を覚えておく。
+# → この例の場合 0
 ```
-
 
 
 ## ソース
@@ -223,7 +223,6 @@ colors = [
   (64, 0, 255),
 ]
 
-
 def load_labelfile(filename):
     label_list = []
     input_file = open(filename, 'r')
@@ -234,7 +233,7 @@ def load_labelfile(filename):
 
 if __name__ == '__main__':
     # ラベルファイル読み込み
-    labels = load_labelfile('models/coco_labels.txt')
+    label_list = load_labelfile('models/coco_labels.txt')
     
     # モデルファイル読み込み
     interpreter = Interpreter(
@@ -256,7 +255,7 @@ if __name__ == '__main__':
     cap=cv2.VideoCapture(0)
 	
 	# カメラの設定（任意）
-    #cap.set(cv2.CAP_PROP_FPS, 30)           # カメラFPSを設定
+    #cap.set(cv2.CAP_PROP_FPS, )           # カメラFPSを設定
 
     # カメラ画像の幅と高さを取得
     frame_width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
@@ -297,33 +296,31 @@ if __name__ == '__main__':
             y_max = int(boxes[index][2] * frame_height)
 
             # クラスのラベル番号
-            label_num = int(classes[index])
+            label_idx = int(classes[index])
 
             # 90クラスあるモデルファイルがあるらしい。例外になるので弾く。
-            if label_num >= 80: continue
+            if label_idx >= 80: continue
 
             # バウンディングボックスの色
-            color = colors[label_num % len(colors)]
+            color = colors[label_idx % len(colors)]
 
             # バウンディングボックスの描写
             cv2.rectangle(frame, \
-                (x_min, y_min), (x_max, y_max), (0, 0, 255), 3)
+                (x_min, y_min), (x_max, y_max), color, 3)
 
             # クラスの文字列を描写
-            cv2.putText(frame, ('%s (%.3f)' % (labels[label_num], score)), (x_min + 50, y_max - 50), \
-                cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 1, cv2.LINE_AA)
+            cv2.putText(frame, ('%s (%.3f)' % (label_list[label_idx], score)), (x_min + 10, y_max - 20), \
+                cv2.FONT_HERSHEY_SIMPLEX, 1, color, 1, cv2.LINE_AA)
 
             # カウントアップ
             index=+1
 
-
-        # 画像を確認する
+        # 画像を表示する
         cv2.imshow('camera capture', frame)
 
         # q が押されたら終了
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
-
 
     # OpenCV オブジェクトの破棄
     cap.release()
