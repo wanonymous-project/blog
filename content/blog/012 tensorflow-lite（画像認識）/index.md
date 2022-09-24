@@ -146,10 +146,11 @@ https://github.com/rianrajagede/object-detection/blob/master/scripts/TFLite_dete
 
 ## 動作確認できたモデル
 ・ Mobilenet SSD version2<br/>
-（上記の方法でダウンロードできる）
+（上記の方法でダウンロードできる）<br/>
 <br/>
 ・EfficientDet-Lite4<br/>
 DL：https://tfhub.dev/tensorflow/lite-model/efficientdet/lite4/detection/default/2<br/>
+<br/>
 <br/>
 
 # USBカメラを使ったリアルタイム物体検出（編集中）
