@@ -252,10 +252,10 @@ if __name__ == '__main__':
     width = input_details[0]['shape'][2]
     
     # カメラの使用を開始
-    cap=cv2.VideoCapture(0)
+    cap=cv2.VideoCapture(0)                 # 上で確認した数値を入れる
 	
 	# カメラの設定（任意）
-    #cap.set(cv2.CAP_PROP_FPS, )           # カメラFPSを設定
+    #cap.set(cv2.CAP_PROP_FPS, )            # カメラFPSを設定
 
     # カメラ画像の幅と高さを取得
     frame_width = cap.get(cv2.CAP_PROP_FRAME_WIDTH)
