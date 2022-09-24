@@ -416,18 +416,18 @@ python3 label_image.py \
 
 
 # 資料
-## 公式 object detection
+公式 object detection<br>
 https://github.com/tensorflow/models/tree/master/research/object_detection
 
-## 有志の人がカスタマイズしなおした object detection
+有志の人がカスタマイズしなおした object detection<br>
 https://github.com/karaage0703/object_detection_tools
 
-## coral のサンプル
+coral のサンプル<br>
 https://github.com/google-coral/examples-camera/tree/master/opencv<br>
 
-## OpenCVのバージョンについて
+OpenCVのバージョンについて<br>
 ver== 4.3.0.38, 4.4.0.44, 4.4.0.46 ラズパイ上でのビルドが必要<br>
 ver== 4.5.1.48, 4.6.0.66 コンパイル済.whでインストール可能<br>
 
-## colab チュートリアル
+colab チュートリアル<br>
 https://colab.research.google.com/drive/1bb2QfeMEWomL-UA_Y68QqbNA0GnXVQoV?usp=sharing
