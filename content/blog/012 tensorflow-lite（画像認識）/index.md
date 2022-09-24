@@ -331,9 +331,7 @@ if __name__ == '__main__':
 
 ## ssh でラズパイにログインする場合
 標準では ssh でのGUIは無効なため、カメラ画像を確認する cv2.imshow() メソッドが使えない。<br>
-以下の方法の内いずれかを選択する。<br>
-
-bash でssh を実行する場合<br>
+以下の方法の内いずれかを選択する。bash でssh を実行する場合<br>
 
 ```bash
 ssh usi@192.168.11.94 -X          # -X オプションを指定
@@ -342,7 +340,10 @@ ssh usi@192.168.11.94 -X          # -X オプションを指定
 ~/.ssh/config を使う場合
 
 ```bash
-ForwardX11 yes
+Host my_rspi
+    HostName 192.168.1.1
+    User pi
+    ForwardX11 yes              # 【 ここ 】
 ```
 
 補足：(2022-09-24)
