@@ -148,6 +148,31 @@ if __name__ == '__main__':
     print('scores:\n%s' % scores)
 ```
 
+```python
+    # バウンディングボックスの処理
+    index = 0
+    draw = ImageDraw.Draw(frame)
+    
+    for score in scores[scores >= 0.4]:      # 結果をスコアで抽出(numpy 独自の抽出法)
+        # 座標位置
+        x_min = int(boxes[index][1] * frame.width)
+        y_min = int(boxes[index][0] * frame.height)
+        x_max = int(boxes[index][3] * frame.width)
+        y_max = int(boxes[index][2] * frame.height)
+
+        # 確認（任意）
+        print('index:%s\tscore:%0.2f\tbox:%s' %  (index, score, boxes[index]))
+
+        # バウンディングボックスの描写
+        draw.rectangle((x_min, y_min, x_max, y_max))
+
+        # カウントアップ
+        index +=1 
+
+    frame.save('images/result.jpg', quality=95)
+```
+
+
 ## 参考資料
 https://github.com/rianrajagede/object-detection/blob/master/scripts/TFLite_detection_image.py<br/>
 <br/>
@@ -314,7 +339,7 @@ if __name__ == '__main__':
                 cv2.FONT_HERSHEY_SIMPLEX, 1, color, 1, cv2.LINE_AA)
 
             # カウントアップ
-            index=+1
+            index+=1
 
         # 画像を表示する
         cv2.imshow('camera capture', frame)
