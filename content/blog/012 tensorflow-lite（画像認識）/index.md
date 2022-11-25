@@ -37,7 +37,7 @@ sudo pip3 install Pillow                # これも有った方が良いので�
 こんな感じ<br>
 
 ```bash
-TFVER=2.10.0		# 動作確認した version:2.9.0, 2.10.0
+TFVER=2.10.0		# 2022-11-26現在で動作確認できている ver:2.9.0, 2.10.0
 PYVER=39
 ARCH=aarch64
 ```
@@ -67,7 +67,7 @@ sudo -H pip3 install \
 https://github.com/PINTO0309/TensorflowLite-bin/releases/download/v${TFVER}/tflite_runtime-`echo ${TFVER} | tr -d -`-cp${PYVER}-none-linux_${ARCH}.whl
 
 # インストールが終了したら確認
-python -c 'import tensorflow as tf;print(tf.__version__)'
+python -c 'import tflite_runtime as tf;print(tf.__version__)'
 ```
 
 
