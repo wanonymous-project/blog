@@ -83,6 +83,7 @@ rm -f all_models.tar.gz
 参考：https://github.com/google-coral/examples-camera/blob/master/download_models.sh
 
 ［追記］ラベルファイルは以下から取った方が良い。上記のは色々とおかしかった。
+
 https://github.com/amikelive/coco-labels/blob/master/coco-labels-2014_2017.txt
 
 # 物体検出（Object detection）
@@ -201,7 +202,7 @@ USBカメラは OpenCV の VideoCaptureメソッドを使うのが楽。<br>
 [bash]
 ```bash
 # OpenCV をインストール
-sudo pip3 opencv-python	
+sudo pip3 install opencv-python	
 
 # ビデオデバイスの番号を確認
 v4l2-ctl --list-devices
