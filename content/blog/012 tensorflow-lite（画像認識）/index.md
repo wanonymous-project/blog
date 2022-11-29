@@ -372,9 +372,24 @@ Host my_rspi
     ForwardX11 yes              # 【 ここ 】
 ```
 
-補足：(2022-09-24)
+補足１：2022-09-24
 方法は色々あるらしい。[ SSH X11 Forwarding ]で検索すると色々出てくる。
 
+補足２：2022-11-30
+クライアントが Windows/Mac の場合はX11 Server のソフトが必要（Linuxでは不要）
+Windows:<br>
+VcXsrv		https://sourceforge.net/projects/vcxsrv/<br>
+（参考）https://dev.classmethod.jp/articles/wsl-x-window/<br>
+Xming		http://www.straightrunning.com/XmingNotes/<br>
+など
+<br>
+さらにラズパイ側で環境変数の指定が必要<br>
+[ terminal@ラズパイ]<br>
+```bash
+export DISPLAY=192.168.1.1:0.0      # ラズパイ側から見たIPアドレス:x11の画面番号 で指定
+```
+
+参考：https://dev.classmethod.jp/articles/wsl-x-window/
 
 
 
