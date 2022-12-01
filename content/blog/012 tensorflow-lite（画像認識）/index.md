@@ -378,6 +378,13 @@ export DISPLAY=192.168.1.1:0.0      # ラズパイ側から見たIPアドレス:
 参考：https://dev.classmethod.jp/articles/wsl-x-window/
 
 
+補足２：2022-12-02
+numpy バージョンエラーの場合<br>
+module compiled against API version 0x10 but this version of numpy is 0xd<br>
+
+```bash
+sudo pip3 install numpy --upgrade --ignore-installed
+```
 
 # クラス分類（Classification）
 ## 必要ファイルをダウンロード
