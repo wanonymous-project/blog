@@ -300,8 +300,8 @@ if __name__ == '__main__':
         scores = interpreter.get_tensor(output_details[2]['index'])[0]      # 一致率
 
         # バウンディングボックスの処理
-        index = 0
-        for score in scores[scores >= 0.2]:      # 結果をスコアで抽出(numpy 独自の抽出法)
+        # 結果をスコアで抽出(numpy 独自の抽出法)
+        for index, score in enumerate(scores[scores >= 0.4]):
             # 座標位置
             x_min = int(boxes[index][1] * frame_width)
             y_min = int(boxes[index][0] * frame_height)
@@ -324,9 +324,6 @@ if __name__ == '__main__':
             # クラスの文字列を描写
             cv2.putText(frame, ('%s (%.3f)' % (label_list[label_idx], score)), (x_min + 10, y_max - 20), \
                 cv2.FONT_HERSHEY_SIMPLEX, 1, color, 1, cv2.LINE_AA)
-
-            # カウントアップ
-            index+=1
 
         # 画像を表示する
         cv2.imshow('camera capture', frame)
